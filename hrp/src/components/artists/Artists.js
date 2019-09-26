@@ -1,7 +1,7 @@
 import React from 'react'
 import './Artists.css'
 
-function Artist() {
+function Artists() {
     return (
         <div>
             <h1>Artistit</h1>   
@@ -9,4 +9,4 @@ function Artist() {
     )
 }
 
-export default Artist
+export default Artists

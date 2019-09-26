@@ -1,7 +1,7 @@
 import React from 'react'
 import './Events.css'
 
-function Event() {
+function Events() {
     return (
         <div>
            <h1>Tapahtumat</h1> 
@@ -9,4 +9,4 @@ function Event() {
     )
 }
 
-export default Event
+export default Events

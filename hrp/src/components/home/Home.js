@@ -1,11 +1,10 @@
 import React from 'react';
 import './Home.css';
-import NavBar from './NavBar'
 
 const Home = () => {
     return (
-        <div className="navigation">
-            <NavBar />
+        <div className="home">
+            <h1>Etusivu</h1>
         </div>
     )
 }

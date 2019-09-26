@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
-import Home from './components/home/Home';
 import './App.css';
+import Home from './components/home/Home';
+import Artists from './components/artists/Artists';
+import NavBar from './components/nav/NavBar';
 
 class App extends Component {
   render() {
+  let showHome = true;
   return (
       <div className="App">
-        <Home />
+        <NavBar />
+        {showHome &&
+          <Home />
+        }
+        {!showHome &&
+          <Artists />
+        }
       </div>
   );
   }
