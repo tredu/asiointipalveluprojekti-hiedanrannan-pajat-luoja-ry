@@ -4,7 +4,7 @@ import './Artists.css'
 function Artist() {
     return (
         <div>
-            
+            <h1>Artistit</h1>   
         </div>
     )
 }

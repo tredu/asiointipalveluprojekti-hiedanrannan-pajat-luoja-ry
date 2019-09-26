@@ -4,7 +4,7 @@ import './Events.css'
 function Event() {
     return (
         <div>
-            
+           <h1>Tapahtumat</h1> 
         </div>
     )
 }
