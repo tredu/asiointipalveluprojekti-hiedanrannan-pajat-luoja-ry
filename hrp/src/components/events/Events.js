@@ -25,8 +25,8 @@ class Events extends Component {
         return (
             <div className="eventRoot">
                 <h1>Tapahtumat</h1> 
-                <div className="eventList">
-                    {events.map(event => (
+                <div className="container">
+                    {/* {events.map(event => (
                         <div className="eventWrapper">
                             <div className="eventTitle"><h2>{event.title}</h2></div>
                             <div className="eventDesc"><p>{event.description}</p></div>
@@ -36,7 +36,57 @@ class Events extends Component {
                             <div className="eventParticipant">Osallistujia: {event.participant}</div>
                             <div className="eventContact">Yhteystiedot: {event.contact}</div>
                         </div>
-                    ))}
+                    ))} */}
+
+                    <div className="row justify-content-center">
+                        {events.map(event => (
+                            <div className="card text-white bg-dark mb-4 col-md-4 mx-auto transparent-card">
+                                <img src={require('../../img/placeholder.jpg')} className="card-img-top mt-3" alt="..." />
+                                <div className="card-header"><h2>{event.title}</h2></div>
+                                <div className="card-body">
+                                    <p className="card-text">
+                                    {event.description}
+                                    </p>
+                                    <h5 className="card-title">Järjestäjä: {event.organizer}</h5>
+                                    <h5 className="card-title">
+                                        Paikka: {event.location}
+                                    </h5>
+                                    <h5 className="card-title">Alkaa:</h5>
+                                        <p className="card-text">
+                                            {(() => {
+                                                const data = new Date(event.start.toDate());
+                                                const day = data.getDate();
+                                                const month = data.getMonth();
+                                                const year = data.getFullYear()
+                                                const hours = data.getHours();
+                                                const mins = data.getMinutes();
+    
+                                                return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                            }) ()}
+                                        </p>
+                                    <h5 className="card-title">Loppuu:</h5>
+                                        <p className="card-text">
+                                            {(() => {
+                                                const data = new Date(event.end.toDate());
+                                                const day = data.getDate();
+                                                const month = data.getMonth();
+                                                const year = data.getFullYear()
+                                                const hours = data.getHours();
+                                                const mins = data.getMinutes();
+    
+                                                return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                            }) ()}
+                                        </p>
+                                    <h5 className="card-title">
+                                        Osallistujia: {event.participant}
+                                    </h5>
+                                    <h6 className="card-title">
+                                        Yhteystiedot: {event.contact}
+                                    </h6>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         )
