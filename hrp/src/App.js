@@ -12,14 +12,14 @@ class App extends Component {
     return (
         <div className="App">
           <Router history={createBrowserHistory()}>
-          <div className="routingContent">
-          <NavBar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/artists" component={Artists} />
-              <Route path="/events" component={Events} />
-            </Switch>
-          </div>
+            <div className="routingContent">
+              <NavBar />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/artists" component={Artists} />
+                <Route path="/events" component={Events} />
+              </Switch>
+            </div>
           </Router>
 
 
