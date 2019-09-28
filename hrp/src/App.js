@@ -13,11 +13,13 @@ class App extends Component {
         <div className="App">
           <Router history={createBrowserHistory()}>
           <NavBar />
+          <div className="routingContent">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/artists" component={Artists} />
               <Route path="/events" component={Events} />
             </Switch>
+          </div>
           </Router>
 
 
