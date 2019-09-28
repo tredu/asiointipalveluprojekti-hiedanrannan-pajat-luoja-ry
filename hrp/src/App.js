@@ -12,8 +12,8 @@ class App extends Component {
     return (
         <div className="App">
           <Router history={createBrowserHistory()}>
-          <NavBar />
           <div className="routingContent">
+          <NavBar />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/artists" component={Artists} />
