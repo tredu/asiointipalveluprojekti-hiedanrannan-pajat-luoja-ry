@@ -13,6 +13,12 @@ const NavBar = () => {
                     <li className="nav-item">
                         <Link className="nav-link" to={"events"}>Tapahtumat</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to={"history"}>Historia</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to={"contact"}>Yhteystiedot</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

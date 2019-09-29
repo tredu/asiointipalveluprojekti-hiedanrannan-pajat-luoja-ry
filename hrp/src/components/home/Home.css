@@ -1,3 +1,16 @@
 .testaus {
     color: white;
 }
+
+#thumbnail {
+    margin-top: 20%;
+    padding: 1%;
+    height: 250px;
+}
+
+.figure-caption {
+    color: black;
+}
+.aboutHeader {
+    padding: 5%;
+}
