@@ -19,10 +19,10 @@ const Home = () => {
                     <figcaption><Link className="figure-caption" to={"artists"}>Artistit</Link></figcaption>
                 </figure>
 
-                <figure className="figure">
+                {/* <figure className="figure">
                     <Link className="figure-caption" to={"history"}><img id="thumbnail" src={require('../../img/placeholder.jpg')} className="figure-img img-fluid rounded" alt="Historia"/></Link>
                     <figcaption><Link className="figure-caption" to={"history"}>Historia</Link></figcaption>
-                </figure>
+                </figure> */}
             </div>
             <div className="about">
                 <h1 className="aboutHeader"> About</h1>

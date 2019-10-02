@@ -7,7 +7,6 @@ import Artists from './components/artists/Artists';
 import Events from './components/events/Events';
 import NavBar from './components/nav/NavBar';
 import Admin from './components/admin/Admin';
-import Past from './components/history/History';
 import Contact from './components/contact/Contact';
 
 class App extends Component {
@@ -23,7 +22,6 @@ class App extends Component {
                 <Route path="/artists" component={Artists} />
                 <Route path="/events" component={Events} />
                 <Route path="/admin" component={Admin} />
-                <Route path="/history" component={Past} />
                 <Route path="/contact" component={Contact} />
               </Switch>
             </div>
