@@ -1,3 +1,34 @@
 .testaus {
     color: white;
 }
+
+#thumbnail {
+    margin-top: 20%;
+    padding: 1%;
+    height: 250px;
+}
+
+.figure-caption {
+    color: black;
+}
+.aboutHeader {
+    padding: 5%;
+}
+
+.boxshadow::after:hover {
+    opacity: 1; /* show the hover shadow */
+}
+
+
+.boxshadow::after {
+    box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.9);
+    opacity: 0; /* hide the hover shadow */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.about {
+    padding: 0 20% 5% 20%;
+}
+.figure-caption{
+    font-size: 2em;
+}
