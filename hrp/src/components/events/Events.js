@@ -61,7 +61,8 @@ class Events extends Component {
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
     
-                                                return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                return `${day}.${month}.${year} klo: ${hours}:${((mins === 0) ? "00" : mins)}`
                                             }) ()}
                                         </p>
                                     <h5 className="card-title">Loppuu:</h5>
@@ -74,7 +75,8 @@ class Events extends Component {
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
     
-                                                return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                return `${day}.${month}.${year} klo: ${hours}:${((mins === 0) ? "00" : mins)}`
                                             }) ()}
                                         </p>
                                     <h5 className="card-title">
