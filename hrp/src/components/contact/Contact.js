@@ -1,12 +1,14 @@
 import React from 'react'
 import './Contact.css'
+import NavBar from '../nav/NavBar'
 
-function Contact() {
-    return (
-        <div>
-            <h1>Yhteystiedot</h1>   
-        </div>
-    )
+export default class Contact extends React.Component {
+        render() {
+            const title= "Yhteystiedot";
+        return (
+            <div>
+                <NavBar title={title}/>    
+            </div>
+        )
+    }
 }
-
-export default Contact

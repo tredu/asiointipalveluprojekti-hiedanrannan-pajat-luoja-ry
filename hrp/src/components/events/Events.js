@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { db } from '../../firebase';
 import './Events.css';
+import NavBar from '../nav/NavBar';
 
-class Events extends Component {
+class Events extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,10 +22,11 @@ class Events extends Component {
     }
 
     render() {
+        const title ="Tapahtumat";
         const { events } = this.state;
         return (
             <div className="eventRoot">
-                <h1>Tapahtumat</h1> 
+                <NavBar title={title}/>  
                 <div className="container">
                     {/* {events.map(event => (
                         <div className="eventWrapper">
@@ -37,8 +39,7 @@ class Events extends Component {
                             <div className="eventContact">Yhteystiedot: {event.contact}</div>
                         </div>
                     ))} */}
-
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center">  
                         {events.map(event => (
                             <div className="card text-white bg-dark mb-4 col-md-4 mx-auto transparent-card">
                                 <img src={require('../../img/placeholder.jpg')} className="card-img-top mt-3" alt="..." />
