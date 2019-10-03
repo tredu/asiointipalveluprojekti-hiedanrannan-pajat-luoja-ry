@@ -1,12 +1,15 @@
 import React from 'react'
 import './Artists.css'
+import NavBar from '../nav/NavBar';
 
-function Artists() {
-    return (
-        <div>
-            <h1>Artistit</h1>   
-        </div>
-    )
+export default class Artists extends React.Component {
+        render() {
+            const title = "Artistit";
+        return (
+            <div>
+                <NavBar title={title}/>  
+            </div>
+        )
+    }
 }
 
-export default Artists

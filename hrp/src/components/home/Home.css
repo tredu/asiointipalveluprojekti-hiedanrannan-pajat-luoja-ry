@@ -25,3 +25,10 @@
     opacity: 0; /* hide the hover shadow */
     transition: opacity 0.3s ease-in-out;
 }
+
+.about {
+    padding: 0 20% 5% 20%;
+}
+.figure-caption{
+    font-size: 2em;
+}

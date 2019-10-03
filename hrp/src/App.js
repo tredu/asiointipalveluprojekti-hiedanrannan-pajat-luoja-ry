@@ -8,6 +8,7 @@ import Events from './components/events/Events';
 import NavBar from './components/nav/NavBar';
 import Admin from './components/admin/Admin';
 import Contact from './components/contact/Contact';
+import Footer from './components/footer/Footer';
 
 class App extends Component {
   render() {
@@ -15,8 +16,8 @@ class App extends Component {
         <div className="App">
           <Router history={createBrowserHistory()}>
             <div className="routingContent">
-              {window.location.pathname !== "/admin" &&
-              <NavBar /> }
+              {/*{window.location.pathname !== "/admin" &&
+              <NavBar /> }*/}
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/artists" component={Artists} />
@@ -24,6 +25,9 @@ class App extends Component {
                 <Route path="/admin" component={Admin} />
                 <Route path="/contact" component={Contact} />
               </Switch>
+              {window.location.pathname !== "/admin" &&
+              <Footer /> }
+              
             </div>
           </Router>
 

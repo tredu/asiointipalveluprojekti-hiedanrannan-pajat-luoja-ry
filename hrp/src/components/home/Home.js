@@ -1,12 +1,15 @@
 import React from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
+import NavBar from '../nav/NavBar';
 
 
-const Home = () => {
+export default class Home extends React.Component {
+    render() {
+        const title ="Etusivu";
     return (
         <div className="home">
-            <h1>Etusivu</h1>
+            <NavBar title={title}/>
             <h1 className="homeHeader">Header</h1>
             <div className="thumbnails">
                 <figure className="figure">
@@ -25,11 +28,14 @@ const Home = () => {
                 </figure> */}
             </div>
             <div className="about">
-                <h1 className="aboutHeader"> About</h1>
-                <p classNAme="aboutContent">Tähän tulee tietoja ja mielenkiintoista tekstiä :D</p>
+                <div className="aboutHeader">
+                    <h1> About</h1>
+                </div>
+                <div classNAme="aboutContent">
+                    <p classNAme="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
             </div>
         </div>
     )
 }
-
-export default Home;
+}
