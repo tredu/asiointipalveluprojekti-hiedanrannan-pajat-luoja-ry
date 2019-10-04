@@ -10,17 +10,17 @@ export default class NavBar extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to={"artists"}>Artistit</Link>
+                            <Link className="nav-link" activeClassName="active" to={"artists"}>Artistit</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={"events"}>Tapahtumat</Link>
+                            <Link className="nav-link" activeClassName="active" to={"events"}>Tapahtumat</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={"contact"}>Yhteystiedot</Link>
+                            <Link className="nav-link" activeClassName="active" to={"contact"}>Yhteystiedot</Link>
                         </li>
-                        <li className="currentPage">
+                        {/* <li className="currentPage">
                             <h1 className="currentPageText">{this.props.title}</h1>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
 

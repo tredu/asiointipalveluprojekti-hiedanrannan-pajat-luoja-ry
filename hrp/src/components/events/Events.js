@@ -12,17 +12,26 @@ class Events extends React.Component {
     }
 
     componentDidMount() {
-    db.collection("events")
-        .get()
-        .then(querySnapshot => {
-            const data = querySnapshot.docs.map(doc => doc.data());
-            console.log(data);
-            this.setState({ events: data });
-        });
+        db.collection("events")
+            .get()
+            .then(querySnapshot => {
+                const data = querySnapshot.docs.map(doc => doc.data());
+                const id = querySnapshot.docs.map(doc => doc.id);
+                
+                const addId = (data, id) => {
+                    data.forEach(r => r.docName = id[data.indexOf(r)]);
+                    return data;
+                }
+                addId(data, id);
+                
+                console.log(data);
+                
+                this.setState({ events: data });
+            });
     }
 
     render() {
-        const title ="Tapahtumat";
+        const title = "Tapahtumat";
         const { events } = this.state;
         return (
             <div className="eventRoot">
@@ -62,7 +71,8 @@ class Events extends React.Component {
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
     
-                                                return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                return `${day}.${month}.${year} klo: ${hours}:${((mins === 0) ? "00" : mins)}`
                                             }) ()}
                                         </p>
                                     <h5 className="card-title">Loppuu:</h5>
@@ -75,7 +85,8 @@ class Events extends React.Component {
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
     
-                                                return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                return `${day}.${month}.${year} klo: ${hours}:${((mins === 0) ? "00" : mins)}`
                                             }) ()}
                                         </p>
                                     <h5 className="card-title">

@@ -25,7 +25,7 @@ class App extends Component {
                 <Route path="/admin" component={Admin} />
                 <Route path="/contact" component={Contact} />
               </Switch>
-              {window.location.pathname !== "/admin" &&
+              {window.location.pathname.indexOf("/admin") !== 0 &&
               <Footer /> }
               
             </div>
