@@ -14,3 +14,29 @@
 .form-control::-moz-placeholder { color: dimgray; }  /* Mozilla Firefox 19+ */
 .form-control:-ms-input-placeholder { color: dimgray; }  /* Internet Explorer 10-11 */
 .form-control::-ms-input-placeholder { color: dimgray; }  /* Microsoft Edge */
+
+.react-datepicker {
+    background-color: #343A40;
+    color: white;
+}
+
+.react-datepicker__time-box, .react-datepicker__header--time {
+    background-color: #343A40;
+    color: white;
+} 
+.react-datepicker__header {
+    background-color: white;
+    color: white;
+}
+
+li.react-datepicker__time-list-item:hover {
+    color: black;
+}
+
+.react-datepicker__day {
+    color: white;
+}
+
+.react-datepicker__day--selected {
+    color: greenyellow;
+}
