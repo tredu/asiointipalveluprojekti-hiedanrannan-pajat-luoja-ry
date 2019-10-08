@@ -3,7 +3,16 @@
     border-top: inset;
     border-color: grey;
     text-align: left;
+
 }
 .footer {
     padding: 0 20% 0 20%;
+    justify-content: center;
+}
+.socials {
+    display:flex;
+    justify-content: center;
+}
+.facebook {
+    margin-right:1%;
 }
