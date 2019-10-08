@@ -7,7 +7,7 @@ export default class Contact extends React.Component {
             const title= "Yhteystiedot";
         return (
             <div>
-                <NavBar title={title}/>    
+                {/* <NavBar title={title}/>     */}
             </div>
         )
     }

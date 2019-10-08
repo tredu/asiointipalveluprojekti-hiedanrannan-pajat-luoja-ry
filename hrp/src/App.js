@@ -16,8 +16,8 @@ class App extends Component {
         <div className="App">
           <Router history={createBrowserHistory()}>
             <div className="routingContent">
-              {/*{window.location.pathname !== "/admin" &&
-              <NavBar /> }*/}
+              {window.location.pathname !== "/admin" &&
+              <NavBar /> }
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/artists" component={Artists} />

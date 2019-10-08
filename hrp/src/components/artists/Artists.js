@@ -7,7 +7,7 @@ export default class Artists extends React.Component {
             const title = "Artistit";
         return (
             <div>
-                <NavBar title={title}/>  
+                {/* <NavBar title={title}/>   */}
             </div>
         )
     }

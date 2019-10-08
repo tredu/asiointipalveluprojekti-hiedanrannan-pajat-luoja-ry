@@ -35,7 +35,7 @@ class Events extends React.Component {
         const { events } = this.state;
         return (
             <div className="eventRoot">
-                <NavBar title={title}/>  
+                {/* <NavBar title={title}/>   */}
                 <div className="container">
                     {/* {events.map(event => (
                         <div className="eventWrapper">
@@ -49,7 +49,7 @@ class Events extends React.Component {
                         </div>
                     ))} */}
                     <div className="row justify-content-center">  
-                        {events.map(event => (
+                        {events.map(event => event.live === "true" ? (
                             <div className="card text-white bg-dark mb-4 col-md-4 mx-auto transparent-card">
                                 <img src={require('../../img/placeholder.jpg')} className="card-img-top mt-3" alt="..." />
                                 <div className="card-header"><h2>{event.title}</h2></div>
@@ -101,7 +101,7 @@ class Events extends React.Component {
                                     </h6>
                                 </div>
                             </div>
-                        ))}
+                        ): null )}
                     </div>
                 </div>
             </div>
