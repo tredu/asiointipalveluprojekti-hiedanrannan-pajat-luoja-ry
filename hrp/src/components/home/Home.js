@@ -9,7 +9,7 @@ export default class Home extends React.Component {
         const title ="Etusivu";
     return (
         <div className="home">
-            <NavBar title={title}/>
+            {/* <NavBar title={title}/> */}
             <h1 className="homeHeader">Header</h1>
             <div className="thumbnails">
                 <figure className="figure">
