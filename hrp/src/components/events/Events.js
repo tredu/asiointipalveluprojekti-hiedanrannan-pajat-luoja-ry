@@ -65,32 +65,36 @@ class Events extends React.Component {
                                         <p className="card-text">
                                             {(() => {
                                                 const data = new Date(event.start.toDate());
-                                                const day = data.getDate();
-                                                const month = data.getMonth();
-                                                const year = data.getFullYear()
+                                                const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
+                                                const day = date.getDate();
+                                                const month = date.getMonth();
+                                                const year = date.getFullYear()
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
     
                                                 // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
                                                 return `${day}.${month}.${year} klo: ${hours}:${((mins === 0) ? "00" : mins)}`
+                                                // return `klo: ${hours}:${((mins === 0) ? "00" : mins)}`
                                             }) ()}
                                         </p>
                                     <h5 className="card-title">Loppuu:</h5>
                                         <p className="card-text">
                                             {(() => {
                                                 const data = new Date(event.end.toDate());
-                                                const day = data.getDate();
-                                                const month = data.getMonth();
-                                                const year = data.getFullYear()
+                                                const date = new Date(event.date ? event.date.toDate() : event.end.toDate());
+                                                const day = date.getDate();
+                                                const month = date.getMonth();
+                                                const year = date.getFullYear()
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
     
                                                 // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
                                                 return `${day}.${month}.${year} klo: ${hours}:${((mins === 0) ? "00" : mins)}`
+                                                // return `klo: ${hours}:${((mins === 0) ? "00" : mins)}`
                                             }) ()}
                                         </p>
                                     <h5 className="card-title">
-                                        Osallistujia: {event.participant}
+                                        Osallistujia: {event.participant ? event.participant : 0}
                                     </h5>
                                     <h6 className="card-title">
                                         Yhteystiedot: {event.contact}

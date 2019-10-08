@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { db } from '../../firebase'
-import Artist from './addArtist'
-import Event from './addEvent'
+import AddArtist from './addArtist'
+import AddEvent from './addEvent'
+import EditEvent from './editEvent'
 import { Route, Link } from 'react-router-dom'
 import './admin.css'
 
@@ -17,24 +18,24 @@ export default class Admin extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount() {
-        db.collection("events")
-            .get()
-            .then(querySnapshot => {
-                const data = querySnapshot.docs.map(doc => doc.data());
-                const id = querySnapshot.docs.map(doc => doc.id);
+    // componentDidMount() {
+    //     db.collection("events")
+    //         .get()
+    //         .then(querySnapshot => {
+    //             const data = querySnapshot.docs.map(doc => doc.data());
+    //             const id = querySnapshot.docs.map(doc => doc.id);
                 
-                const addId = (data, id) => {
-                    data.forEach(r => r.docName = id[data.indexOf(r)]);
-                    return data;
-                }
-                addId(data, id);
+    //             const addId = (data, id) => {
+    //                 data.forEach(r => r.docName = id[data.indexOf(r)]);
+    //                 return data;
+    //             }
+    //             addId(data, id);
                 
-                console.log(data);
+    //             console.log(data);
                 
-                this.setState({ events: data });
-            });
-    }
+    //             this.setState({ events: data });
+    //         });
+    // }
 
     handleChange(e) {
         this.setState({value: e.target.value});
@@ -48,9 +49,11 @@ export default class Admin extends Component {
                     <div className="adminPanel">
                         <h1>Welcome admin</h1>
                         <Link className="nav-link" activeClassName="active" to={"/admin/artist"}>Artistit</Link>
-                        <Link className="nav-link" activeClassName="active" to={"/admin/event"}>Tapahtumat</Link>
-                        <Route path="/admin/artist" component={Artist} />
-                        <Route path="/admin/event" component={Event} />
+                        <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtumat</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumat</Link>
+                        <Route path="/admin/artist" component={AddArtist} />
+                        <Route path="/admin/addevent" component={AddEvent} />
+                        <Route path="/admin/editevent" component={EditEvent} />
                     </div>
                 }
             </div>
