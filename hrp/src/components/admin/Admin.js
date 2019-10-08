@@ -48,10 +48,10 @@ export default class Admin extends Component {
                 {this.state.value !== this.state.secretWord &&
                     <div className="adminPanel">
                         <h1>Welcome admin</h1>
-                        <Link className="nav-link" activeClassName="active" to={"/admin/artist"}>Artistit</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/addartist"}>Artistit</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtumat</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumat</Link>
-                        <Route path="/admin/artist" component={AddArtist} />
+                        <Route path="/admin/addartist" component={AddArtist} />
                         <Route path="/admin/addevent" component={AddEvent} />
                         <Route path="/admin/editevent" component={EditEvent} />
                     </div>

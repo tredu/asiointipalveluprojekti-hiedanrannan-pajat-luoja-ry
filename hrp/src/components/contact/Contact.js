@@ -8,6 +8,7 @@ export default class Contact extends React.Component {
         render() {
             const title= "Yhteystiedot";
         return (
+<<<<<<< HEAD
             <div className="contact">
                 <NavBar title={title}/>
                 <div className="vittumitapaskaa"> 
@@ -23,6 +24,11 @@ export default class Contact extends React.Component {
                 </div>
                 </div>
                 
+=======
+            <div>
+                {/* <NavBar title={title}/>     */}
+            </div>
+>>>>>>> 400884966834ba152f318ca5f348830210c3b5a5
         )
     }
 }
