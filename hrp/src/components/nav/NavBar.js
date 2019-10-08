@@ -31,17 +31,19 @@ export default class NavBar extends React.Component {
             //     </div>
 
             // </nav>
-            <Navbar collapseOnSelect={true} expand="md" bg="dark" variant="dark">
-            <Navbar.Brand><Link to={"/"}>HRP</Link></Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                <Nav.Link as={NavLink} to='/artists'>Artistit</Nav.Link>
-                <Nav.Link as={NavLink} to='/events'>Tapahtumat</Nav.Link>
-                <Nav.Link as={NavLink} to='/contact'>Yhteystiedot</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>
+            <div className="header-navbar">
+                <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top" className="transBar">
+                <Navbar.Brand><Link to={"/"}>HRP</Link></Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                    <Nav.Link as={NavLink} to='/artists'>Artistit</Nav.Link>
+                    <Nav.Link as={NavLink} to='/events'>Tapahtumat</Nav.Link>
+                    <Nav.Link as={NavLink} to='/contact'>Yhteystiedot</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+                </Navbar>
+            </div>
         )
     }
 }
