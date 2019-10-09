@@ -1,14 +1,12 @@
 import React from 'react';
 import './Contact.css'
-import NavBar from '../nav/NavBar'
 import { SocialIcon } from 'react-social-icons';
 
      
 export default class Contact extends React.Component {
         render() {
-            const title= "Yhteystiedot";
         return (
-            <div className="container-fluid">
+            <div className="container-fluid text-white">
                 <div className="row">
                 <div className="col-sm-3"></div>
                     <div className="col-sm-3">
@@ -19,7 +17,6 @@ export default class Contact extends React.Component {
                         <p className="text-left">Lielahden kartanoa lähin pysäkki on Paasikiventiellä ja se on nimeltään Hiedanranta. Pysäkille pysähtyvät Joukkoliikenteen linjat ovat 3, 14, 21, 28, 37, 71, 80 ja 85. Pysäkiltä on matkaa Kartanolle noin 700 metriä.</p>
                         <h3 className="text-left">Autolla</h3>
                         <p className="text-left">Hiedanrantaan pääsee ajamaan autolla ainoastaan Lielahdenkadun kautta. Hiedanrannan alueella on jonkin verran pysäköintitilaa arkikäyttöön. Suurten yleisötapahtumien aikana pysäköinti Hiedanrannan alueella on haasteellista, joten suosittelemme saapumaan silloin julkisilla, pyörällä tai kävellen.</p>
-
                     </div>
                     <div className="col-sm-1"></div>
                     <div className="col-sm-2">

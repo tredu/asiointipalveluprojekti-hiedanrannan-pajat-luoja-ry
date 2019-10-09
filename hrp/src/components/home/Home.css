@@ -7,6 +7,9 @@
     padding: 1%;
     height: 250px;
 }
+.thumbnails {
+    padding-bottom: 5%;
+}
 
 .figure-caption {
     color: black;
@@ -26,9 +29,15 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-.about {
-    padding: 0 20% 5% 20%;
-}
 .figure-caption{
     font-size: 2em;
+}
+#about {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.home {
+    padding-top: 5%;
 }
