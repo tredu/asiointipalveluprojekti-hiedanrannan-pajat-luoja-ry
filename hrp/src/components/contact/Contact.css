@@ -1,5 +1,3 @@
-.lol
-{
-    padding: 0 20% 5% 20%;
-    display: flex;
+.container-fluid {
+    justify-content: center;
 }
