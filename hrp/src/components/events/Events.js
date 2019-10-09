@@ -31,11 +31,9 @@ class Events extends React.Component {
     }
 
     render() {
-        const title = "Tapahtumat";
         const { events } = this.state;
         return (
             <div className="eventRoot">
-                {/* <NavBar title={title}/>   */}
                 <div className="container">
                     {/* {events.map(event => (
                         <div className="eventWrapper">

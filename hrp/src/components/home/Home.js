@@ -29,10 +29,16 @@ export default class Home extends React.Component {
             </div>
             <div className="about">
                 <div className="aboutHeader">
-                    <h1> About</h1>
+                    <h1>Hiedanrannan Pajat</h1>
                 </div>
-                <div classNAme="aboutContent">
-                    <p classNAme="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div className="aboutContent">
+                    <p className="text-left">
+                     Hiedanranta on historiallinen kartano- ja tehdasmiljöö täynnä värikästä kaupunkikulttuuria. Lielahden vanha teollisuusalue on ollut avoinna ihmisille, tapahtumille ja aktiiviselle toiminnalle vuodesta 2016 ja alueella vierailee vuosittain kymmeniä tuhansia ihmisiä. Hiedanrannassa voi nauttia monien yritysten ja toimijoiden tarjoamista palveluista tai tulla tekemään ja luomaan uutta itse. Hiedanrannan Paja on yksi alueen toimijoista.<br/><br/>
+                     Hiedanrannan Paja on tamperelaisten käsityöläisten ja taiteilijoiden yhteisö. Pajan toiminnan ideana on edistää avointa käsityöläiskulttuuria ja tarjota kokemuksia sekä palveluita niin lähiseudun asukkaille kuin matkailijoille. Pajalta löydät muun muassa lasinpuhaltajan, sepän, muusikoita, kuvataiteilijoita, suutareita ja verhoilijoita. Pajan yhteisö on syntynyt hiljalleen eri alojen kädentaitajien muutettua toimintansa Hiedanrantaan.<br/><br/>
+                     Pajan käsityöläiset avaavat ovensa yleisölle, pitävät työnäytöksiä ja pop-up -kahvilaa, kursseja, taidegalleriaa sekä järjestävät vaihtuvaa ohjelmaa pajalla ja sen ympäristössä. Tapahtumissa on mahdollista nähdä esimerkiksi lasinpuhaltaja, taidemaalari, verhoilija tai seppä työssään. Käsitöitä ja taidetta on tietysti mahdollista ostaa myös kotiinviemisiksi.<br/><br/>
+                     Pajan ovet ovat aina avoinna yleisölle, vaikka kaikilla talon toimijoilla ei vakituisia aukioloaikoja olekaan.<br/><br/>
+                     Tervetuloa tutustumaan Pajalaisten toimintaan - joko etukäteen sovitusti tai astumalla rohkeasti sisään!
+                    </p>
                 </div>
             </div>
         </div>
