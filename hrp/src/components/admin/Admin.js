@@ -3,6 +3,7 @@ import { db } from '../../firebase'
 import AddArtist from './addArtist'
 import AddEvent from './addEvent'
 import EditEvent from './editEvent'
+import EditArtist from './editArtist'
 import { Route, Link } from 'react-router-dom'
 import './admin.css'
 
@@ -48,10 +49,12 @@ export default class Admin extends Component {
                 {this.state.value !== this.state.secretWord &&
                     <div className="adminPanel">
                         <h1>Welcome admin</h1>
-                        <Link className="nav-link" activeClassName="active" to={"/admin/addartist"}>Artistit</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/addartist"}>Lisää Artisti</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/editartist"}>Muokkaa Artistia</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtumat</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumat</Link>
                         <Route path="/admin/addartist" component={AddArtist} />
+                        <Route path="/admin/editartist" component={EditArtist} />
                         <Route path="/admin/addevent" component={AddEvent} />
                         <Route path="/admin/editevent" component={EditEvent} />
                     </div>

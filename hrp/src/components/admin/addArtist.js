@@ -20,6 +20,8 @@ export default class addArtist extends Component {
             link: '',
             phone: '',
             live: '',
+            facebook: '',
+            instagram: '',
         }
         }
 
@@ -74,6 +76,8 @@ export default class addArtist extends Component {
             link: this.state.link,
             phone: this.state.phone,
             live: this.state.live,
+            facebook: this.state.facebook,
+            instagram: this.state.instagram
         })
         .then(function() {
             console.log("Document successfully written!");
@@ -85,8 +89,8 @@ export default class addArtist extends Component {
 
     render() {
         return (
-            <div className="event-add">
-                <div className="event-header">
+            <div className="artist-add">
+                <div className="artist-header">
                     <h1>Lisää Artisti</h1>
                 </div>
 
@@ -96,7 +100,7 @@ export default class addArtist extends Component {
                             <div class="form-group col-md-6">
                             <label for="name">Nimi</label>
                             <input type="text" name="name" class="form-control bg-dark text-white border-0" id="name" placeholder="Nimi"
-                            onChange={this.handleChange} value={this.state.nimi} />
+                            onChange={this.handleChange} value={this.state.name} />
                             </div>
                             <div class="form-group col-md-6">
                             <label for="address">Osoite</label>
@@ -114,6 +118,18 @@ export default class addArtist extends Component {
                                 <label for="phone">Puhelin</label>
                                 <input type="text" name="phone" className="form-control bg-dark text-white border-0" id="phone" placeholder="+358501231234"
                                 onChange={this.handleChange} value={this.state.phone} />
+                            </div>
+                        </div>
+                        <div className="form-row justify-content-center">
+                            <div class="form-group col-md-6">
+                                <label for="sacebook">Facebook</label>
+                                <input type="text" name="facebook" class="form-control bg-dark text-white border-0" id="facebook" placeholder="Facebook linkki" 
+                                onChange={this.handleChange} value={this.state.facebook} />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label for="instagram">Instagram</label>
+                                <input type="text" name="instagram" className="form-control bg-dark text-white border-0" id="instagram" placeholder="Instagram linkki"
+                                onChange={this.handleChange} value={this.state.instagram} />
                             </div>
                         </div>
                             <div class="form-group">

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Artists.css'
 import { db } from '../../firebase';
 import NavBar from '../nav/NavBar';
+import { SocialIcon } from 'react-social-icons';
 
 class Artists extends Component {
     constructor(props) {
@@ -52,8 +53,12 @@ class Artists extends Component {
                                         Puhelinnumero: {artist.phone}
                                     </h5>
                                     <h5 className="card-title">
-                                        <a href={artist.link}>Minun sivut</a>
+                                        <a href={artist.link}>Linkki sivuilleni</a>
                                     </h5>
+                                    <div className="text-right">
+                                    {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} />) : null}
+                                    {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} />) : null}
+                                    </div>
                                 </div>
                             </div>
                         ): null )}
