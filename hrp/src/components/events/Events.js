@@ -34,7 +34,7 @@ class Events extends React.Component {
         const { events } = this.state;
         return (
             <div className="eventRoot">
-                <div className="container">
+                <div className="container-fluid">
                     {/* {events.map(event => (
                         <div className="eventWrapper">
                             <div className="eventTitle"><h2>{event.title}</h2></div>
@@ -48,7 +48,7 @@ class Events extends React.Component {
                     ))} */}
                     <div className="row justify-content-center">  
                         {events.map(event => event.live === "true" ? (
-                            <div className="card text-white bg-dark mb-4 col-md-4 mx-auto transparent-card">
+                            <div className="card text-white bg-dark mb-4 col-md-5 col-xl-3 mx-2 transparent-card">
                                 <img src={require('../../img/placeholder.jpg')} className="card-img-top mt-3" alt="..." />
                                 <div className="card-header"><h2>{event.title}</h2></div>
                                 <div className="card-body">
