@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './NavBar.css'
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import Logo from './pajat-logo.png';
 
 
 
@@ -33,7 +34,8 @@ export default class NavBar extends React.Component {
             // </nav>
             <div className="header-navbar">
                 <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top" className="transBar">
-                <Navbar.Brand><Link to={"/"}>HRP</Link></Navbar.Brand>
+                    <div id="floatinglogo"><Navbar.Brand><Link to={"/"}><img src={Logo} className="img-responsive" id="paja-logo"/></Link></Navbar.Brand></div>
+                    <Navbar.Brand><Link to={"/"}>HRP</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">

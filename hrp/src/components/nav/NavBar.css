@@ -1,3 +1,22 @@
 .navbar {
     background: rgba(0, 0, 0, 0.6) !important;
 }
+#paja-logo{
+    width:60%;
+}
+@media screen and (max-width:767px) {
+    #floatinglogo{
+        display: none;
+    }
+
+}
+
+#floatinglogo {
+    z-index: 10;
+    position: absolute;
+    left: 1;
+    right: 0;
+    bottom: -150px;
+    height: 220px;
+    padding: 0;
+    }
