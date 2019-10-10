@@ -35,7 +35,7 @@ class Artists extends Component {
             const { artists } = this.state;
             return (
                 <div className="artistRoot">
-                    <div className="container"></div>
+                    <div className="container">
                     <div className="row justify-content-center">  
                         {artists.map(artist => artist.live === "true" ? (
                             <div className="card text-white bg-dark mb-4 col-md-4 mx-auto transparent-card">
@@ -45,25 +45,37 @@ class Artists extends Component {
                                     <p className="card-text">
                                     {artist.description}
                                     </p>
-                                    <h5 className="card-title">Sähköposti: {artist.email}</h5>
-                                    <h5 className="card-title">
-                                        Osoite: {artist.address}
-                                    </h5>
-                                    <h5 className="card-title">
-                                        Puhelinnumero: {artist.phone}
-                                    </h5>
-                                    <h5 className="card-title">
-                                        <a href={artist.link}>Linkki sivuilleni</a>
-                                    </h5>
+                                    
+                                    {artist.email ? 
+                                    (<h5 className="card-title">
+                                        Sähköposti: {artist.email}
+                                        </h5>) : null }
+
+                                    {artist.address ?
+                                        (<h5 className="card-title">
+                                            Osoite: {artist.address}
+                                        </h5>) : null}
+
+                                    {artist.phone ? 
+                                        (<h5 className="card-title">
+                                            Puhelinnumero: {artist.phone}
+                                        </h5>) : null}
+
+                                    {artist.link ?
+                                        (<h5 className="card-title">
+                                        <a href={artist.link}>Linkki sivuilleni</a> 
+                                        </h5> ) : null}
+
                                     <div className="text-right">
-                                    {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} />) : null}
-                                    {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} />) : null}
+                                        {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} />) : null}
+                                        {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} />) : null}
                                     </div>
                                 </div>
                             </div>
                         ): null )}
                     </div>
                 </div>
+            </div>
         )
     }
 }
