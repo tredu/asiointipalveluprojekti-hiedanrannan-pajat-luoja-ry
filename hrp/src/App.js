@@ -18,18 +18,18 @@ class App extends Component {
               {window.location.pathname !== "/admin" &&
                 <NavBar /> 
               }
-              <div className="routingContent">
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/artists" component={Artists} />
-                <Route path="/events" component={Events} />
-                <Route path="/admin" component={Admin} />
-                <Route path="/contact" component={Contact} />
-              </Switch>
-              {window.location.pathname.indexOf("/admin") !== 0 &&
-              <Footer /> }
-              
-            </div>
+                <div className="routingContent">
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/artists" component={Artists} />
+                  <Route path="/events" component={Events} />
+                  <Route path="/admin" component={Admin} />
+                  <Route path="/contact" component={Contact} />
+                </Switch>
+                {window.location.pathname.indexOf("/admin") !== 0 &&
+                <Footer /> }
+                
+              </div>
           </Router>
 
 

@@ -26,12 +26,10 @@
 }
 
 .routingContent {
-  padding-top: 5%;
   position: fixed;
-  background-image: url("./img/bg.JPG");
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("./img/bg.JPG");
   background-size: cover;
   width: 100vw;
   height: 100vh;
   overflow: auto;
 }
-

@@ -1,12 +1,11 @@
-.footerContent {
+#footerContent {
     padding: 4% 0 2% 5%;
     border-top: inset;
-    border-color: grey;
+    border-color: rgb(236, 236, 236);
     text-align: left;
-
 }
 .footer {
-    padding: 0 20% 0 20%;
+    padding: 5% 20% 0 20%;
     justify-content: center;
 }
 .socials {
