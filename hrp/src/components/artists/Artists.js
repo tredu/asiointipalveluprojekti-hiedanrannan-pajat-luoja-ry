@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import './Artists.css'
 import { db } from '../../firebase';
-import NavBar from '../nav/NavBar';
 import { SocialIcon } from 'react-social-icons';
+import Card from 'react-bootstrap/Card'
+import { CardColumns } from 'react-bootstrap';
 
 class Artists extends Component {
     constructor(props) {
@@ -29,20 +30,39 @@ class Artists extends Component {
                 
                 this.setState({ artists: data });
             });
-    }
+        }
 
         render() {
             const { artists } = this.state;
+
             return (
-                <div className="artistRoot">
-                    <div className="container">
-                    <div className="row justify-content-center">  
-                        {artists.map(artist => artist.live === "true" ? (
-                            <div className="card text-white bg-dark mb-4 col-md-4 mx-auto transparent-card">
+            <div className="artistRoot">
+                <div className="container-fluid">
+                        <CardColumns>
+                            {artists.map((artist,idx) => artist.live === "true" ? (
+                                <Card className="transparent-card text-white h-100">
+                                    <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
+                                    <Card.Title>{artist.name}</Card.Title>
+                                    <Card.Body>
+                                        <Card.Text>{(artist.description.length > 180) ? (artist.description.substr(0,179) + "...") : artist.description}</Card.Text>
+                                        <Card.Text>
+                                            <button className="read-more">Lue Lisää</button>
+                                        </Card.Text>
+                                        <Card.Text>
+                                            {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} />) : null}
+                                            {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} />) : null}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            ) : null)}
+                        </CardColumns>
+                    {/* <div className="row justify-content-center">  
+                        {artists.map((artist, idx) => artist.live === "true" ? (
+                            <div className="card text-white bg-dark mb-4 col-md-5 col-xl-3 mx-2 transparent-card">
                                 <img src={require('../../img/placeholder.jpg')} className="card-img-top mt-3" alt="..." />
                                 <div className="card-header"><h2>{artist.name}</h2></div>
                                 <div className="card-body">
-                                    <p className="card-text">
+                                    <p className="card-text scroll smooth-scroll">
                                     {artist.description}
                                     </p>
                                     
@@ -73,7 +93,7 @@ class Artists extends Component {
                                 </div>
                             </div>
                         ): null )}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
