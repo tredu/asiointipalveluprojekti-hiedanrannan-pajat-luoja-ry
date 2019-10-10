@@ -8,7 +8,8 @@ export default class editEvent extends Component {
         this.state = {
             eventsID: [],
             selected: '',
-            event: ''
+            event: '',
+            id: ''
 
         }
         this.handleChange = this.handleChange.bind(this);
@@ -48,7 +49,8 @@ export default class editEvent extends Component {
             console.log(data);
 
             this.setState({
-                event: data
+                event: data,
+                id: Math.random()
             });
         });
     }
@@ -75,7 +77,7 @@ export default class editEvent extends Component {
                     </div>
                     <div className="row">
                         {this.state.event &&
-                            <AddEvent cEvent={event} selected={this.state.selected} />
+                            <AddEvent cEvent={event} selected={this.state.selected} key={this.state.id} />
                         }
                     </div>
                 </div>

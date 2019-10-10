@@ -8,7 +8,8 @@ export default class editArtist extends Component {
         this.state = {
             artistsID: [],
             selected: '',
-            artist: ''
+            artist: '',
+            id: ''
 
         }
         this.handleChange = this.handleChange.bind(this);
@@ -48,7 +49,8 @@ export default class editArtist extends Component {
             console.log(data);
 
             this.setState({
-                artist: data
+                artist: data,
+                id: Math.random()
             });
         });
     }
@@ -75,7 +77,7 @@ export default class editArtist extends Component {
                     </div>
                     <div className="row">
                         {this.state.artist &&
-                            <AddArtist cArtist={artist} selected={this.state.selected} />
+                            <AddArtist cArtist={artist} selected={this.state.selected} key={this.state.id} />
                         }
                     </div>
                 </div>
