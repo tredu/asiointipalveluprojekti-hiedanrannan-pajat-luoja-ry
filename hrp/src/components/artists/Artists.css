@@ -12,3 +12,45 @@
     width: 30px !important;
     opacity: 0.8;
 }
+
+.artist-popup {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000;
+    background: rgba(0,0,0,0.7);
+    display:grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist-modal-contact {
+    border-top: 1px solid dimgray;
+    margin: 0 0 2vmin 0;
+    padding-top: 1.5vmin;
+}
+
+.contact-icon {
+    font-size: 1.5em;
+}
+
+.email {
+    margin-right: 1%;
+}
+
+.weblink {
+    margin-right: 1%;
+    transform: rotate(180deg);
+}
+
+.close {
+    color: #fff;
+    opacity: 1;
+}
+
+.close:hover {
+    color: crimson;
+    opacity: 1;
+}
