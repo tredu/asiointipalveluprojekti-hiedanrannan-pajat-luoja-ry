@@ -58,16 +58,17 @@ class Artists extends Component {
 
             return (
             <div className="artistRoot">
-                <div className="container-fluid">
+                <div className="container align-items-center">
                         <CardColumns>
                             {artists.map((artist,idx) => artist.live === "true" ? (
-                                <Card className="transparent-card text-white h-100">
+                                <Card border="dark" className="transparent-card text-white">
                                     <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
                                     <Card.Title>{artist.name}</Card.Title>
                                     <Card.Body>
                                         {/* <Card.Text>{(artist.description.length > 180) ? (artist.description.substr(0,179) + "...") : artist.description}</Card.Text> */}
-                                        <Card.Text>{(artist.description.length > 180) ?  (artist.description.substr(0,179) + "...") : artist.description}
-                                            </Card.Text>
+                                        <Card.Text>
+                                            {(artist.description.length > 180) ?  (artist.description.substr(0,179) + "...") : artist.description}
+                                        </Card.Text>
 
                                         <Card.Text>
                                             <Button variant="primary" onClick={this.togglePopup.bind(this, idx)}>Lue Lisää</Button>
@@ -107,11 +108,11 @@ class Artists extends Component {
                                                 </Modal>
                                             
                                         </Card.Text>
-                                        <Card.Text>
+                                    </Card.Body>
+                                        <Card.Footer>
                                             {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} network="facebook" />) : null}
                                             {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} network="instagram" />) : null}
-                                        </Card.Text>
-                                    </Card.Body>
+                                        </Card.Footer>
                                 </Card>
                             ) : null)}
                         </CardColumns>

@@ -8,7 +8,51 @@ export default class Home extends React.Component {
     return (
         <div className="home">
             <div className="thumbnails">
-                <figure className="figure">
+
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="hovereffect">
+                                <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/>
+                                <div class="overlay">
+                                <h2>Tapahtumat</h2>
+                                <Link className="info" to={"events"}>
+                                </Link>
+                                {/* <a class="info" href="#"></a> */}
+        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="hovereffect">
+                                <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/>
+                                <div class="overlay">
+                                <h2>Artistit</h2>
+                                <Link className="info" to={"artists"}>
+                                </Link>
+                                {/* <a class="info" href="#"></a> */}
+        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="hovereffect">
+                                <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/>
+                                <div class="overlay">
+                                <h2>Yhteystiedot</h2>
+                                <Link className="info" to={"contact"}>
+                                </Link>
+                                {/* <a class="info" href="#"></a> */}
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {/* <figure className="figure">
                     <Link className="figure-caption" to={"events"}><img id="thumbnail" src={require('../../img/placeholder.jpg')} className="figure-img img-fluid rounded" alt="Tapahtumat"/></Link>
                     <figcaption><Link className="figure-caption text-white " to={"events"}>Tapahtumat</Link></figcaption>
                 </figure>
@@ -21,7 +65,7 @@ export default class Home extends React.Component {
                  <figure className="figure">
                     <Link className="figure-caption" to={"contact"}><img id="thumbnail" src={require('../../img/placeholder.jpg')} className="figure-img img-fluid rounded" alt="Historia"/></Link>
                     <figcaption><Link className="figure-caption text-white" to={"contact"}>Yhteystiedot</Link></figcaption>
-                </figure> 
+                </figure>  */}
             </div>
             <div className="container p-3 mb-2 text-white" id="about">
                 <div className="row">

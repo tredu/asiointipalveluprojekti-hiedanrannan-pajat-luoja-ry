@@ -4,6 +4,7 @@ import AddArtist from './addArtist'
 import AddEvent from './addEvent'
 import EditEvent from './editEvent'
 import EditArtist from './editArtist'
+import ImageUp from './ImageUp'
 import { Route, Link } from 'react-router-dom'
 import './admin.css'
 
@@ -53,10 +54,12 @@ export default class Admin extends Component {
                         <Link className="nav-link" activeClassName="active" to={"/admin/editartist"}>Muokkaa Artistia</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtumat</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumat</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/imageup"}>Muokkaa Tapahtumat</Link>
                         <Route path="/admin/addartist" component={AddArtist} />
                         <Route path="/admin/editartist" component={EditArtist} />
                         <Route path="/admin/addevent" component={AddEvent} />
                         <Route path="/admin/editevent" component={EditEvent} />
+                        <Route path="/admin/imageup" component={ImageUp} />
                     </div>
                 }
             </div>
