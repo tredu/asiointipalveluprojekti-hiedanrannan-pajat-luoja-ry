@@ -103,7 +103,7 @@ export default class addEvent extends Component {
         return (
             <div className="event-add">
                 <div className="event-header">
-                    <h1>Lisää tapahtuma</h1>
+                    <h2>{this.props.cEvent ? (<div><span className="text-white">Muokkaa tapahtumaa </span ><span className="text-info">{this.props.cEvent.title}</span></div>)  : "Lisää tapahtuma"}</h2>
                 </div>
 
                 <div className="event-form container">

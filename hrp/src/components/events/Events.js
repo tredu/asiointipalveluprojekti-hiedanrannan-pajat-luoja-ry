@@ -123,12 +123,13 @@ class Events extends React.Component {
                                         <Modal
                                             show={this.state.which === idx}
                                             onHide={this.closePopup.bind(this)}
-                                            size="lg"
+                                            // size="lg"
                                             dialogClassName="modal-90w"
                                             aria-labelledby="vcenter"
-                                            scrollable
+                                            // scrollable
                                             centered
                                         >
+
                                             <Modal.Header className="bg-dark text-white text-center" closeButton>
                                                 <Modal.Title className="w-100" id="vcenter">
                                                     {event.imageURL ?

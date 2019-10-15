@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react'
 import { db } from '../../firebase';
+import ImageUp from './ImageUp'
 import fi from 'date-fns/locale/fi'
 
 
@@ -22,6 +23,7 @@ export default class addArtist extends Component {
             live: '',
             facebook: '',
             instagram: '',
+            imageURL: ''
         }
         }
 
@@ -77,7 +79,8 @@ export default class addArtist extends Component {
             phone: this.state.phone,
             live: this.state.live,
             facebook: this.state.facebook,
-            instagram: this.state.instagram
+            instagram: this.state.instagram,
+            imageURL: this.state.imageURL
         })
         .then(function() {
             console.log("Document successfully written!");
@@ -91,10 +94,11 @@ export default class addArtist extends Component {
         return (
             <div className="artist-add">
                 <div className="artist-header">
-                    <h1>Lisää Artisti</h1>
+                    <h2>{this.props.cArtist ? (<div><span className="text-white">Muokkaa Artistia </span><span className="text-info">{this.props.cArtist.name}</span></div>): "Lisää artisti"}</h2>
                 </div>
 
                 <div className="event-form container">
+                    <ImageUp setState={s => {this.setState(s)}} setImgLoc={"artistImages"} currentImg={this.state.imageURL}/>
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">

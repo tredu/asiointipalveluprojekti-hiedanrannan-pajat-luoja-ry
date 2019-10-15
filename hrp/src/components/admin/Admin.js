@@ -52,14 +52,12 @@ export default class Admin extends Component {
                         <h1>Welcome admin</h1>
                         <Link className="nav-link" activeClassName="active" to={"/admin/addartist"}>Lisää Artisti</Link>
                         <Link className="nav-link" activeClassName="active" to={"/admin/editartist"}>Muokkaa Artistia</Link>
-                        <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtumat</Link>
-                        <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumat</Link>
-                        <Link className="nav-link" activeClassName="active" to={"/admin/imageup"}>Muokkaa Tapahtumat</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtuma</Link>
+                        <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumia</Link>
                         <Route path="/admin/addartist" component={AddArtist} />
                         <Route path="/admin/editartist" component={EditArtist} />
                         <Route path="/admin/addevent" component={AddEvent} />
                         <Route path="/admin/editevent" component={EditEvent} />
-                        <Route path="/admin/imageup" component={ImageUp} />
                     </div>
                 }
             </div>

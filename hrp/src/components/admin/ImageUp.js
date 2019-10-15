@@ -74,7 +74,7 @@ export default class ImageUp extends Component {
                 this.props.currentImg ? <img src={this.props.currentImg} style={{maxWidth: "217px"}} /> : null
                }
 
-               <br/><CustomUploadButton
+               <br/><br/><CustomUploadButton
                 accept="image/*"
                 name="thumbnail"
                 randomizeFilename
@@ -83,11 +83,9 @@ export default class ImageUp extends Component {
                 onUploadError={this.handleUploadError}
                 onUploadSuccess={this.handleUploadSuccess}
                 onProgress={this.handleProgress}
-                maxHeight="400" 
-                maxWidth="640"
                 style={{backgroundColor: '#0275d8', color: 'white', padding: 10, borderRadius: 4}}
                 >Lisää Kuva</CustomUploadButton>
-                <button className="bg-primary text-white" onClick={this.getImages.bind(this)}>{this.props.currentImg ? "Vaihda Kuva" : "Valitse Kuva"}</button>
+                <button style={{backgroundColor: '#0275d8', color: 'white', padding: 10, borderRadius: 4, border: 'none', outline: 'none', marginLeft: '1.5%'}} onClick={this.getImages.bind(this)}>{this.props.currentImg ? "Vaihda Kuva" : "Valitse Kuva"}</button>
                 {this.state.showImages ? <ImageList images={this.state.images} selectImage={this.selectImage.bind(this)} close={this.closeImages.bind(this)} key={this.state.showImages} />: null} 
             </div>
         )

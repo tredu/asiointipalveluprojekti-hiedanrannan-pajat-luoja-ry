@@ -61,7 +61,6 @@ export default class editEvent extends Component {
         return (
             <div className="editEvent">
                 <div className="editEvent-header">
-                    <h1>Muokkaa tapahtuma</h1>
                 </div>
                 <div className="container">
                     <div className="row justify-content-center">  

@@ -40,3 +40,18 @@ li.react-datepicker__time-list-item:hover {
 .react-datepicker__day--selected {
     color: greenyellow;
 }
+
+.image-list-bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    z-index: 10;
+    overflow-y: auto;
+}

@@ -61,7 +61,6 @@ export default class editArtist extends Component {
         return (
             <div className="editArtist">
                 <div className="editArtist-header">
-                    <h1>Muokkaa artistia</h1>
                 </div>
                 <div className="container">
                     <div className="row justify-content-center">  

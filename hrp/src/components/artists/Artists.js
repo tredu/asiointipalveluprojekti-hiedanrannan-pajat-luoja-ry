@@ -62,7 +62,10 @@ class Artists extends Component {
                         <CardColumns>
                             {artists.map((artist,idx) => artist.live === "true" ? (
                                 <Card border="dark" className="transparent-card text-white">
-                                    <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
+                                    {artist.imageURL ?
+                                        <Card.Img variant="top" src={artist.imageURL} onError={(e) => { e.target.onerror = null; e.target.src=require('../../img/placeholder.jpg');}} /> :
+                                        <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
+                                    }
                                     <Card.Title>{artist.name}</Card.Title>
                                     <Card.Body>
                                         {/* <Card.Text>{(artist.description.length > 180) ? (artist.description.substr(0,179) + "...") : artist.description}</Card.Text> */}
@@ -76,15 +79,18 @@ class Artists extends Component {
                                             <Modal
                                                 show={this.state.which === idx}
                                                 onHide={this.closePopup.bind(this)}
-                                                size="lg"
+                                                // size="lg"
                                                 dialogClassName="modal-90w"
                                                 aria-labelledby="vcenter"
-                                                scrollable
+                                                // scrollable
                                                 centered
                                             >
                                                 <Modal.Header className="bg-dark text-white text-center" closeButton>
                                                     <Modal.Title className="w-100" id="vcenter">
-                                                        <Image src={require('../../img/placeholder.jpg')} fluid rounded /><br/>
+                                                        {artist.imageURL ?
+                                                            <Image src={artist.imageURL} fluid rounded onError={(e) => { e.target.onerror = null; e.target.src=require('../../img/placeholder.jpg');}} /> :
+                                                            <Image src={require('../../img/placeholder.jpg')} fluid rounded />
+                                                        }<br/>
                                                         {artist.name} 
                                                     </Modal.Title>        
                                                 </Modal.Header>    

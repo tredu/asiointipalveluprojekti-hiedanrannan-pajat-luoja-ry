@@ -62,6 +62,7 @@
   background-color: rgba(75,75,75,0.3);
   -webkit-transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
   transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
+  z-index: 10;
 }
 
 .hovereffect:hover .overlay {
@@ -100,7 +101,7 @@
   padding: 7px 14px;
   text-transform: uppercase;
   color: #fff;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   background-color: transparent;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -110,10 +111,12 @@
   -webkit-transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
   transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
   font-weight: normal;
-  /* margin: -52px 0 0 0;
+  /* margin: -52px 0 0 0; // 
   padding: 62px 100px; */
-  margin: -30% 0 0 -30%;
-  padding: 100% 100%;
+  /* margin: -30% 0 0 -30%; //WITHOUT TEXT INSIDE IMG
+  padding: 100% 100%; */
+  margin: -15% -50% 0  -50%;
+  padding: 33% 40% 35% 40%;
 }
 
 .hovereffect:hover .info {
@@ -130,10 +133,16 @@
 
 @media (max-width: 34em) {
     .thumbnails {
-        padding-top: 10%;
+        padding-top: 15%;
     }
     .eventRoot, .artistRoot {
         padding-top: 18%;
+    }
+    .image-list-bg .container {
+        padding-top: 110%;
+    }
+    .hovereffect .info {
+        margin: -15% -50% 0  -50%;
     }
 }
 @media (min-width: 34em) {
@@ -143,6 +152,25 @@
     .eventRoot, .artistRoot {
         padding-top: 10%;
     }
+    .image-list-bg .container {
+        padding-top: 120%;
+    }
+    .hovereffect .info {
+        margin: -20% -50% 0  -50%;
+    }
+}
+
+@media (min-width: 36em) {
+    .image-list-bg .container {
+        padding-top: 0%;
+    }
+    .hovereffect .info {
+        margin: -25% -50% 0  -50%;
+    }
+    .image-list-bg .container {
+        padding-top: 10%;
+    }
+
 }
 
 @media (min-width: 48em) {
@@ -152,6 +180,9 @@
     .eventRoot, .artistRoot {
         padding-top: 8%;
     }
+    .hovereffect .info {
+        margin: -23% -50% 0  -50%;
+    }
 }
 
 @media (min-width: 62em) {
@@ -160,6 +191,9 @@
     }
     .eventRoot, .artistRoot {
         padding-top: 7%;
+    }
+    .hovereffect .info {
+        margin: -20% -50% 0  -50%;
     }
 }
 

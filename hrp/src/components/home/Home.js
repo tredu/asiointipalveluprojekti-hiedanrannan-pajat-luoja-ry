@@ -13,10 +13,11 @@ export default class Home extends React.Component {
                     <div className="row justify-content-center">
                         <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="hovereffect">
-                                <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/>
+                                {/* <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/> */}
+                                <img class="img-responsive" src='https://firebasestorage.googleapis.com/v0/b/hrp-sivut.appspot.com/o/eventImages%2F2b530369-17e6-4b15-8caa-3e4b56f890b5.jpg?alt=media&token=442bbb0d-c8f2-4b4a-8095-7f8f642c06dc' al t=""/>
                                 <div class="overlay">
                                 <h2>Tapahtumat</h2>
-                                <Link className="info" to={"events"}>
+                                <Link className="info" to={"events"}>Selaa Tapahtumia
                                 </Link>
                                 {/* <a class="info" href="#"></a> */}
         
@@ -25,10 +26,11 @@ export default class Home extends React.Component {
                         </div>
                         <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="hovereffect">
-                                <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/>
+                                {/* <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/> */}
+                                <img class="img-responsive" src='https://firebasestorage.googleapis.com/v0/b/hrp-sivut.appspot.com/o/artistImages%2F7c3d8954-0b34-443c-91fa-033cdc5a3145.jpg?alt=media&token=9095ef98-bc7a-41fc-abc7-6cdecaa00a35' alt=""/>
                                 <div class="overlay">
                                 <h2>Artistit</h2>
-                                <Link className="info" to={"artists"}>
+                                <Link className="info" to={"artists"}>Selaa Artisteja
                                 </Link>
                                 {/* <a class="info" href="#"></a> */}
         
@@ -37,10 +39,11 @@ export default class Home extends React.Component {
                         </div>
                         <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="hovereffect">
-                                <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/>
+                                {/* <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/> */}
+                                <img class="img-responsive" src="https://firebasestorage.googleapis.com/v0/b/hrp-sivut.appspot.com/o/eventImages%2F54dcc3de-9d99-4729-8b43-882efa4489d7.JPG?alt=media&token=66577265-4ecf-4e76-84e8-7d7e9da5f532" alt=""/>
                                 <div class="overlay">
                                 <h2>Yhteystiedot</h2>
-                                <Link className="info" to={"contact"}>
+                                <Link className="info" to={"contact"}>Hiedanrannan Pajan<br/> Yhteystiedot
                                 </Link>
                                 {/* <a class="info" href="#"></a> */}
         
