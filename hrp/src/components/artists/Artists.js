@@ -1,16 +1,24 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import './Artists.css'
 import { db } from '../../firebase';
 import { SocialIcon } from 'react-social-icons';
 import Card from 'react-bootstrap/Card'
-import { CardColumns } from 'react-bootstrap';
+import { CardColumns, Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal'
+import Image from 'react-bootstrap/Image'
+
+// icons
+import { MdHome, MdPhone} from 'react-icons/md'
 
 class Artists extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            artists: []
+            artists: [],
+            showPopup: false,
+            which: ''
         };
+
     }
 
     componentDidMount() {
@@ -30,29 +38,89 @@ class Artists extends Component {
                 
                 this.setState({ artists: data });
             });
-        }
+    }
+
+    togglePopup = (which) => {
+        this.setState({
+            showPopup: !this.state.showPopup,
+            which: which
+        });
+    }
+
+    closePopup = () => {
+        this.setState({
+            which: ''
+        })
+    }
 
         render() {
             const { artists } = this.state;
 
             return (
             <div className="artistRoot">
-                <div className="container-fluid">
+                <div className="container align-items-center">
                         <CardColumns>
                             {artists.map((artist,idx) => artist.live === "true" ? (
-                                <Card className="transparent-card text-white h-100">
-                                    <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
+                                <Card border="dark" className="transparent-card text-white">
+                                    {artist.imageURL ?
+                                        <Card.Img variant="top" src={artist.imageURL} onError={(e) => { e.target.onerror = null; e.target.src=require('../../img/placeholder.jpg');}} /> :
+                                        <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
+                                    }
                                     <Card.Title>{artist.name}</Card.Title>
                                     <Card.Body>
-                                        <Card.Text>{(artist.description.length > 180) ? (artist.description.substr(0,179) + "...") : artist.description}</Card.Text>
+                                        {/* <Card.Text>{(artist.description.length > 180) ? (artist.description.substr(0,179) + "...") : artist.description}</Card.Text> */}
                                         <Card.Text>
-                                            <button className="read-more">Lue Lisää</button>
+                                            {(artist.description.length > 180) ?  (artist.description.substr(0,179) + "...") : artist.description}
                                         </Card.Text>
+
                                         <Card.Text>
-                                            {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} />) : null}
-                                            {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} />) : null}
+                                            <Button variant="primary" onClick={this.togglePopup.bind(this, idx)}>Lue Lisää</Button>
+
+                                            <Modal
+                                                show={this.state.which === idx}
+                                                onHide={this.closePopup.bind(this)}
+                                                // size="lg"
+                                                dialogClassName="modal-90w"
+                                                aria-labelledby="vcenter"
+                                                // scrollable
+                                                centered
+                                            >
+                                                <Modal.Header className="bg-dark text-white text-center" closeButton>
+                                                    <Modal.Title className="w-100" id="vcenter">
+                                                        {artist.imageURL ?
+                                                            <Image src={artist.imageURL} fluid rounded onError={(e) => { e.target.onerror = null; e.target.src=require('../../img/placeholder.jpg');}} /> :
+                                                            <Image src={require('../../img/placeholder.jpg')} fluid rounded />
+                                                        }<br/>
+                                                        {artist.name} 
+                                                    </Modal.Title>        
+                                                </Modal.Header>    
+                                                <Modal.Body className="bg-dark text-white">
+                                                    <p>
+                                                        {artist.description}
+                                                    </p>
+
+                                                    <div className="artist-modal-contact text-center">
+                                                        {artist.address ? (<div><MdHome className="contact-icon" /> {artist.address}</div>) : null}
+                                                        {artist.phone ? (<div><MdPhone className="contact-icon" />  {artist.phone}</div>) : null}
+                                                    </div>
+
+                                                    <div className="artist-modal-social text-center">
+                                                        {artist.link ? (<SocialIcon className="weblink" url={artist.link} bgColor="#ff5a01" network="meetup" />) : null}
+                                                        {artist.email ? (<SocialIcon className="email" url={"mailto:" + artist.email} network="email" />) : null}
+                                                        {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} network="facebook" />) : null}
+                                                        {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} network="instagram" />) : null}
+                                                    </div>
+                                                </Modal.Body>
+                                                </Modal>
+                                            
                                         </Card.Text>
                                     </Card.Body>
+                                        <Card.Footer>
+                                            {artist.link ? (<SocialIcon className="weblink" url={artist.link} bgColor="#ff5a01" network="meetup" />) : null}
+                                            {artist.email ? (<SocialIcon className="email" url={"mailto:" + artist.email} network="email" />) : null}
+                                            {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} network="facebook" />) : null}
+                                            {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} network="instagram" />) : null}
+                                        </Card.Footer>
                                 </Card>
                             ) : null)}
                         </CardColumns>

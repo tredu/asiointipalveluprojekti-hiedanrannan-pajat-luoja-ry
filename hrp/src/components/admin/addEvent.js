@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react'
 import { db } from '../../firebase';
 import DatePicker from 'react-datepicker'
 import fi from 'date-fns/locale/fi'
+import ImageUp from './ImageUp'
 
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -27,6 +28,7 @@ export default class addEvent extends Component {
             start: '',
             end: '',
             live: '',
+            imageURL: ''
         }
         }
 
@@ -86,7 +88,8 @@ export default class addEvent extends Component {
             date: this.state.date,
             start: this.state.start,
             end: this.state.end,
-            live: this.state.live
+            live: this.state.live,
+            imageURL: this.state.imageURL
         })
         .then(function() {
             console.log("Document successfully written!");
@@ -100,10 +103,11 @@ export default class addEvent extends Component {
         return (
             <div className="event-add">
                 <div className="event-header">
-                    <h1>Lisää tapahtuma</h1>
+                    <h2>{this.props.cEvent ? (<div><span className="text-white">Muokkaa tapahtumaa </span ><span className="text-info">{this.props.cEvent.title}</span></div>)  : "Lisää tapahtuma"}</h2>
                 </div>
 
                 <div className="event-form container">
+                    <ImageUp setState={s => {this.setState(s)}} setImgLoc={"eventImages"} currentImg={this.state.imageURL}/>
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
