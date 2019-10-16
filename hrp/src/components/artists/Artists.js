@@ -100,8 +100,8 @@ class Artists extends Component {
                                                     </p>
 
                                                     <div className="artist-modal-contact text-center">
-                                                        <MdHome className="contact-icon" /> {artist.address ? artist.address : null}<br/>
-                                                        <MdPhone className="contact-icon" /> {artist.phone ? artist.phone : null}
+                                                        {artist.address ? (<div><MdHome className="contact-icon" /> {artist.address}</div>) : null}
+                                                        {artist.phone ? (<div><MdPhone className="contact-icon" />  {artist.phone}</div>) : null}
                                                     </div>
 
                                                     <div className="artist-modal-social text-center">
@@ -116,6 +116,8 @@ class Artists extends Component {
                                         </Card.Text>
                                     </Card.Body>
                                         <Card.Footer>
+                                            {artist.link ? (<SocialIcon className="weblink" url={artist.link} bgColor="#ff5a01" network="meetup" />) : null}
+                                            {artist.email ? (<SocialIcon className="email" url={"mailto:" + artist.email} network="email" />) : null}
                                             {artist.facebook ? (<SocialIcon className="facebook" url={artist.facebook} network="facebook" />) : null}
                                             {artist.instagram ? (<SocialIcon className="instagram" url={artist.instagram} network="instagram" />) : null}
                                         </Card.Footer>

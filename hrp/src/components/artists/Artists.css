@@ -7,7 +7,7 @@
     object-fit: cover;
 }
 
-.artistRoot .facebook, .artistRoot .instagram {
+.artistRoot .facebook, .artistRoot .instagram, .artistRoot .email, .artistRoot .weblink {
     height: 30px  !important;
     width: 30px !important;
     opacity: 0.8;
