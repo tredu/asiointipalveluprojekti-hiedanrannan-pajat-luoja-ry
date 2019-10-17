@@ -49,9 +49,13 @@ li.react-datepicker__time-list-item:hover {
     left: 0;
     background: rgba(0,0,0,0.7);
     display: grid;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
-    align-items: center;
+    align-items: center; */
     z-index: 10;
     overflow-y: auto;
+}
+
+.image-list-bg img {
+    cursor: pointer;
 }

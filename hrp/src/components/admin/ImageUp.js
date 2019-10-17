@@ -47,7 +47,7 @@ export default class ImageUp extends Component {
         .then(result => {
             this.setState({images: []})
             const data = result.items.map(r => {
-                r.getDownloadURL().then(url => this.setState({images: [...this.state.images, url], showImages: !this.state.showImages}));
+                r.getDownloadURL().then(url => this.setState({images: [...this.state.images, url], showImages: true}));
             });
             
             
