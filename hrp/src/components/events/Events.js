@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import { db } from '../../firebase';
-import './Events.css';
 import { Card, CardColumns, CardDeck, Button, Modal, Image } from 'react-bootstrap'
+import CourseMenu from './CourseMenu'
+
+import './Events.css';
 
 //icons
 
@@ -58,6 +60,9 @@ class Events extends React.Component {
         const { events } = this.state;
         return (
             <div className="eventRoot justify-content-center">
+                <div className="container">
+                    <CourseMenu />
+                </div>
                 <div className="container">
                     {/* {events.map(event => (
                         <div className="eventWrapper">
