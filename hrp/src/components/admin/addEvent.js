@@ -204,6 +204,8 @@ export default class addEvent extends Component {
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cEvent ? "Muokkaa" : "Lisää"}</button>
+                        {this.props.cEvent &&
+                        <button type="submit" class="btn btn-danger" onClick={db.collection('events').doc(this.props.cEvent.title).delete()}>Poista</button>}
                         </form>
                 </div>
 

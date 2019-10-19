@@ -65,6 +65,7 @@ export default class ImageUp extends Component {
         this.setState({showImages: false})
     }
             
+
     render() {
         const { images } = this.state;
         return (
