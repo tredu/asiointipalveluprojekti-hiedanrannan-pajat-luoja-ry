@@ -16,7 +16,7 @@ class App extends Component {
     return (
         <div className="App">
           <Router history={createBrowserHistory()}>
-              {window.location.pathname !== "/admin" &&
+              {window.location.pathname.indexOf("/admin") !== 0 &&
                 <NavBar /> 
               }
                 <div className="routingContent">
