@@ -1,0 +1,50 @@
+.courses {
+    background: rgba(0,0,0,0.5);
+}
+.menu-item {
+  padding: 20px 40px;
+  margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+  background: #2c2c2c;
+  color: #fff;
+  outline: none;
+  overflow-wrap: break-word;
+}
+
+.menu-item .menu-item-date {
+    position: absolute;
+    top: 3px;
+    left: 20px;
+}
+
+.menu-item .menu-item-title {
+    margin-top: 8px;
+    word-wrap: break-word;
+    height: 40px;
+}
+
+.menu-item .menu-item-organizer {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    color: #007bff;
+}
+
+.menu-item-wrapper {
+  /* border: 1px blue solid; */
+  outline: none;
+}
+.menu-item.active {
+  border: 1px #007bff solid;
+}
+ 
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.arrow-prev, .arrow-next {
+    color: white;
+}
