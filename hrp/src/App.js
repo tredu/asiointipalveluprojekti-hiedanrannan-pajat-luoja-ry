@@ -9,7 +9,6 @@ import NavBar from './components/nav/NavBar';
 import Admin from './components/admin/Admin';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
-import Headroom from "react-headroom";
 
 class App extends Component {
   render() {
