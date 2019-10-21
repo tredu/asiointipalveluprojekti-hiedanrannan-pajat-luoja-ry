@@ -159,7 +159,9 @@ export default class addArtist extends Component {
                         </div>
                         <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cArtist ? "Muokkaa" : "Lisää"}</button>
                         {this.props.cArtist &&
-                        <button type="submit" class="btn btn-danger" onClick={db.collection('artists').doc(this.props.cArtist.name).delete()}>Poista</button>}
+                        <button class="btn btn-danger ml-1" onClick={(e) => {
+                            db.collection('artists').doc(this.props.cArtist.name).delete();
+                        }}>Poista</button>}
                         </form>
                 </div>
             </div>
