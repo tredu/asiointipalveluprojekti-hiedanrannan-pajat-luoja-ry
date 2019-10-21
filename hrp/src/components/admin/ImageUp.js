@@ -61,10 +61,14 @@ export default class ImageUp extends Component {
         this.setState({imageURL: img});
     }
 
+    deleteImage = img => {
+        storage.refFromURL(img).delete();    
+    }
+
     closeImages = () => {
         this.setState({showImages: false})
     }
-            
+
 
     render() {
         const { images } = this.state;
@@ -87,7 +91,8 @@ export default class ImageUp extends Component {
                 style={{backgroundColor: '#0275d8', color: 'white', padding: 10, borderRadius: 4}}
                 >Lisää Kuva</CustomUploadButton>
                 <button style={{backgroundColor: '#0275d8', color: 'white', padding: 10, borderRadius: 4, border: 'none', outline: 'none', marginLeft: '1.5%'}} onClick={this.getImages.bind(this)}>{this.props.currentImg ? "Vaihda Kuva" : "Valitse Kuva"}</button>
-                {this.state.showImages ? <ImageList images={this.state.images} selectImage={this.selectImage.bind(this)} close={this.closeImages.bind(this)} key={this.state.showImages} />: null} 
+                {this.state.showImages ? <ImageList images={this.state.images} selectImage={this.selectImage.bind(this)}
+                    deleteImage={this.deleteImage.bind(this)} close={this.closeImages.bind(this)} key={this.state.showImages} />: null} 
             </div>
         )
     }

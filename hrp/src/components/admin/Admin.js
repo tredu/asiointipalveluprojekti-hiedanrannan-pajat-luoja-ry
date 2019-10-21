@@ -4,7 +4,8 @@ import AddArtist from './addArtist'
 import AddEvent from './addEvent'
 import EditEvent from './editEvent'
 import EditArtist from './editArtist'
-import ImageUp from './ImageUp'
+import AddCourse from './addCourse'
+import EditCourse from './editCourse'
 import { Route, Link, NavLink } from 'react-router-dom'
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
@@ -69,6 +70,14 @@ export default class Admin extends Component {
                                     <Nav.Link as={NavLink} to='/admin/editevent'>Muokkaa tapahtumaa</Nav.Link>
                                 </NavDropdown.Item>
                             </NavDropdown>
+                            <NavDropdown title="Kurssit" id="basic-nav-dropdown">
+                                <NavDropdown.Item className="transBar">
+                                    <Nav.Link as={NavLink} to='/admin/addcourse'>Lisää kurssi</Nav.Link>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    <Nav.Link as={NavLink} to='/admin/editcourse'>Muokkaa kurssia</Nav.Link>
+                                </NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>
@@ -76,9 +85,12 @@ export default class Admin extends Component {
                 <div className="adminPanel">
                     <Route path="/admin/addartist" component={AddArtist} />
                     <Route path="/admin/editartist" component={EditArtist} />
+
                     <Route path="/admin/addevent" component={AddEvent} />
                     <Route path="/admin/editevent" component={EditEvent} />
 
+                    <Route path="/admin/addcourse" component={AddCourse} />
+                    <Route path="/admin/editcourse" component={EditCourse} />
 
                     {/* <Link className="nav-link" activeClassName="active" to={"/admin/addartist"}>Lisää Artisti</Link>
                     <Link className="nav-link" activeClassName="active" to={"/admin/editartist"}>Muokkaa Artistia</Link>

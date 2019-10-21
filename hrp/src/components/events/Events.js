@@ -92,7 +92,7 @@ class Events extends React.Component {
                                                 const data = new Date(event.start.toDate());
                                                 const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
                                                 const day = date.getDate();
-                                                const month = date.getMonth();
+                                                const month = date.getMonth() + 1;
                                                 const year = date.getFullYear()
                                                 const hours = data.getHours();
                                                 const mins = data.getMinutes();
@@ -150,7 +150,7 @@ class Events extends React.Component {
                                                             const data = new Date(event.start.toDate());
                                                             const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
                                                             const day = date.getDate();
-                                                            const month = date.getMonth();
+                                                            const month = date.getMonth() + 1;
                                                             const year = date.getFullYear()
                                                             const hours = data.getHours();
                                                             const mins = data.getMinutes();

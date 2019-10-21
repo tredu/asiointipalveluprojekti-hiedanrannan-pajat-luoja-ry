@@ -2,16 +2,15 @@ import React, { Component, useState } from 'react'
 import { db } from '../../firebase';
 import DatePicker from 'react-datepicker'
 import fi from 'date-fns/locale/fi'
-import ImageUp from './ImageUp'
 
 import "react-datepicker/dist/react-datepicker.css"
 
-export default class addEvent extends Component {
+export default class addCourse extends Component {
     constructor(props) {
         super(props);
-        if(this.props.cEvent) {
+        if(this.props.cCourse) {
             this.state = {
-                ...this.props.cEvent,
+                ...this.props.cCourse,
                 editEnd: true,
                 editStart: true,
                 editDate: true,
@@ -19,16 +18,14 @@ export default class addEvent extends Component {
             }
         } else {        
         this.state = {
-            organizer: '',
-            contact: '',
-            title: '',
-            location: '',
-            description: '',
             date: '',
-            start: '',
+            description: '',
+            email: '',
             end: '',
-            live: '',
-            imageURL: ''
+            organizer: '',
+            phone: '',
+            title: '',
+            start: ''
         }
         }
 
@@ -79,17 +76,15 @@ export default class addEvent extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        db.collection("events").doc(this.props.cEvent ? this.state.selected : this.state.title).set({
-            organizer: this.state.organizer,
-            contact: this.state.contact,
-            title: this.state.title,
-            description: this.state.description,
-            location: this.state.location,
+        db.collection("courses").doc(this.props.cCourse ? this.state.selected : this.state.title).set({
             date: this.state.date,
-            start: this.state.start,
+            description: this.state.description,
+            email: this.state.email,
             end: this.state.end,
-            live: this.state.live,
-            imageURL: this.state.imageURL
+            organizer: this.state.organizer,
+            phone: this.state.phone,
+            start: this.state.start,
+            title: this.state.title
         })
         .then(function() {
             console.log("Document successfully written!");
@@ -103,43 +98,24 @@ export default class addEvent extends Component {
         return (
             <div className="event-add">
                 <div className="event-header">
-                    <h2>{this.props.cEvent ? (<div><span className="text-white">Muokkaa tapahtumaa </span ><span className="text-info">{this.props.cEvent.title}</span></div>)  : "Lisää tapahtuma"}</h2>
+                    <h2>{this.props.cCourse ? (<div><span className="text-white">Muokkaa kurssia </span ><span className="text-info">{this.props.cCourse.title}</span></div>)  : "Lisää kurssi"}</h2>
                 </div>
 
                 <div className="event-form container">
-                    <ImageUp setState={s => {this.setState(s)}} setImgLoc={"eventImages"} currentImg={this.state.imageURL}/>
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label for="title">Tapahtuman nimi</label>
+                            <label for="title">Kurssin nimi</label>
                             <input type="text" name="title" class="form-control bg-dark text-white border-0" id="title" placeholder="Nimi"
                             onChange={this.handleChange} value={this.state.title} />
                             </div>
                             <div class="form-group col-md-6">
-                            <label for="organizer">Järjestäjä</label>
+                            <label for="organizer">Kurssin Järjestäjä</label>
                             <input type="text" name="organizer" class="form-control bg-dark text-white border-0" id="organizer" placeholder="Järjestäjä" required 
                             onChange={this.handleChange} value={this.state.organizer}/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="location">Tapahtuma Paikka</label>
-                            <input type="text" name="location" class="form-control bg-dark text-white border-0" id="location" placeholder="Hiedanrannan Paja ..." 
-                            onChange={this.handleChange} value={this.state.location} />
-                        </div>
                         <div className="form-row justify-content-center">
-                            {/* <div class="form-group col-md-2">
-                            <label for="event-date">Päivämäärä</label>
-                            <input type="date" class="form-control bg-dark text-white border-0" id="event-date" />
-                            </div>
-                            <div class="form-group col-md-2">
-                            <label for="start-time">Aloitus aika</label>
-                            <input type="time" class="form-control bg-dark text-white border-0" id="start-time" />
-                            </div>
-                            <div class="form-group col-md-2">
-                            <label for="end-time">Lopetus aika</label>
-                            <input type="time" class="form-control bg-dark text-white border-0" id="end-time" />
-                            </div> */}
-
                             <div className="form-group col-md-2">
                                 <label for="datepicker">Päivämäärä</label>
                                 <DatePicker className="eventDatePicker form-control bg-dark text-white border-0" id="datepicker"
@@ -183,30 +159,26 @@ export default class addEvent extends Component {
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label for="description">Tapahtuman Kuvaus</label>
+                            <label for="description">Kurssin Kuvaus</label>
                             <textarea type="text" name="description" class="form-control bg-dark text-white border-0" id="description" placeholder="Kuvaus" 
                             onChange={this.handleChange} value={this.state.description} />
                         </div>
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-4">
                             <label for="email">Email</label>
-                            <input type="email" name="contact" class="form-control bg-dark text-white border-0" id="email" required 
-                            onChange={this.handleChange} value={this.state.contact} />
+                            <input type="email" name="email" class="form-control bg-dark text-white border-0" id="email" required 
+                            onChange={this.handleChange} value={this.state.email} />
                             </div>
-                            <div class="form-group col-md-4">
-                            <label for="inputState">Julkaistaanko tapahtuma</label>
-                            <select id="inputState" name="live" class="form-control bg-dark text-white border-0" required
-                            onChange={this.handleChange} value={this.state.live ? this.state.live : null}>
-                                <option selected disabled>Valitse...</option>
-                                <option value="true">Kyllä</option>
-                                <option value="false">Ei</option>
-                            </select>
+                            <div className="form-group col-md-4">
+                                <label for="phone">Puhelin</label>
+                                <input type="text" name="phone" className="form-control bg-dark text-white border-0" id="phone" placeholder="+358501231234"
+                                onChange={this.handleChange} value={this.state.phone} />
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cEvent ? "Muokkaa" : "Lisää"}</button>
-                        {this.props.cEvent &&
+                        <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cCourse ? "Muokkaa" : "Lisää"}</button>
+                        {this.props.cCourse &&
                         <button class="btn btn-danger" onClick={(e) => {
-                                db.collection('events').doc(this.props.cEvent.title).delete()
+                                db.collection('courses').doc(this.props.cCourse.title).delete()
                             }}>Poista</button>}
                         </form>
                 </div>
