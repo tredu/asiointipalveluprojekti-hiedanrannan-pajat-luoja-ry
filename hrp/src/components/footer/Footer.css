@@ -1,0 +1,25 @@
+#footerContent {
+    margin-top: 5%;
+    border-top: inset;
+    border-color: rgb(236, 236, 236);
+    text-align: left;
+}
+.footer {
+    padding: 5% 20% 0 20%;
+    justify-content: center;
+}
+.socials {
+    display:flex;
+    justify-content: center;
+}
+.facebook {
+    margin-right:1%;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+#info {
+    padding-top: 4%;
+}

@@ -1,25 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import './NavBar.css'
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import Logo from './pajat-logo.png';
 
-const NavBar = () => {
-    return (
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <span className="navbar-brand mb-0 h1"><Link to={"/"}>HRP</Link></span>
-              <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <Link className="nav-link" to={"artists"}>Artistit</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to={"events"}>Tapahtumat</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to={"contact"}>Yhteystiedot</Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    )
+
+
+export default class NavBar extends React.Component {
+        render() {
+        return (
+            
+            <div id="navbar" className="header-navbar">
+                <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top" className="transBar">
+                <div id="floatinglogo"><Navbar.Brand><Link to={"/"}><img src={Logo} className="img-responsive" id="paja-logo"/></Link></Navbar.Brand></div>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mx-auto">
+                        <Nav.Link as={NavLink} to='/artists'>Artistit</Nav.Link>
+                        <Nav.Link as={NavLink} to='/events'>Tapahtumat</Nav.Link>
+                        <Nav.Link as={NavLink} to='/contact'>Yhteystiedot</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+                </Navbar>
+        </div>
+  
+        )
+    }
 }
 
-export default NavBar

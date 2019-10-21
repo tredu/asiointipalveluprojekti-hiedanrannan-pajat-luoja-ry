@@ -1,0 +1,35 @@
+.navbar {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+#paja-logo{
+    width:60%;
+}
+@media screen and (max-width:767px) {
+    #floatinglogo{
+        display: none;
+    }
+
+}
+
+#floatinglogo {
+    z-index: 10;
+    position: absolute;
+    left: 0,6;
+    right: 1;
+    bottom: -150px;
+    height: 220px;
+    padding: 0;
+}
+.navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
+    background: rgba(0, 0, 0, 0.95) !important;
+    color:#ffffff;
+}
+
+.navbar-nav .dropdown-menu {
+    background: rgba(0, 0, 0, 0.95) !important;
+     color:#ffffff;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background: #0056b3;
+}
