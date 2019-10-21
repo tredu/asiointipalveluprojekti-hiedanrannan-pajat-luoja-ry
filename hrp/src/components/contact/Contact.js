@@ -9,7 +9,7 @@ export default class Contact extends React.Component {
             <div className="container-fluid text-white">
                 <div className="row">
                 <div className="col-sm-3"></div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-3" id="about">
                         <h2 className="text-left">Näin saavut hiedanrantaan</h2>
                         <h3 className="text-left">Kävellen ja pyörällä</h3>
                         <p className="text-left">Kävely- ja pyörätie kulkee Paasikiventien alikulkutunnelilta Lielahden kartanolle ja siitä eteenpäin Niemenrantaan. Kävelijät ja pyöräilijät pääsevät edelleen myös Lielahden kauppa-alueen läpi Lielahdenkadulle, josta käännytään Hiedanrantaan ja tehdasalueelle.<br/><br/>Hiedanrannassa on käytössä muutama EasyBike-pyörä Paasikiventien päädyssä, kartanolla sekä Kuivaamolla.</p>
@@ -19,7 +19,7 @@ export default class Contact extends React.Component {
                         <p className="text-left">Hiedanrantaan pääsee ajamaan autolla ainoastaan Lielahdenkadun kautta. Hiedanrannan alueella on jonkin verran pysäköintitilaa arkikäyttöön. Suurten yleisötapahtumien aikana pysäköinti Hiedanrannan alueella on haasteellista, joten suosittelemme saapumaan silloin julkisilla, pyörällä tai kävellen.</p>
                     </div>
                     <div className="col-sm-1"></div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-3" id="about">
                         <h1>Yhteystiedot</h1>
                         <p className="text-center">Hiedanrannan Paja <br/>Tehdaskartanonkatu 28 <br/> hiedanrannanpaja@gmail.com</p>
                         <SocialIcon className="facebook" url="http://facebook.com/hiedanrannan.paja" />

@@ -15,7 +15,10 @@ export default class addEvent extends Component {
                 editEnd: true,
                 editStart: true,
                 editDate: true,
-                selected: this.props.selected
+                selected: this.props.selected,
+                completed: false,
+                deleted: false
+
             }
         } else {        
         this.state = {
@@ -28,7 +31,8 @@ export default class addEvent extends Component {
             start: '',
             end: '',
             live: '',
-            imageURL: ''
+            imageURL: '',
+            completed: false
         }
         }
 
@@ -93,19 +97,34 @@ export default class addEvent extends Component {
         })
         .then(function() {
             console.log("Document successfully written!");
-        })
+        }).then(() => {this.setCompleted()})
         .catch(function(error) {
             console.error("Error writing document: ", error);
         });
     }
 
+    setCompleted = () => {
+        this.setState({completed: true});
+    }
+
+    setDeleted = () => {
+        this.setState({deleted: true});
+    }
+
     render() {
         return (
             <div className="event-add">
-                <div className="event-header">
-                    <h2>{this.props.cEvent ? (<div><span className="text-white">Muokkaa tapahtumaa </span ><span className="text-info">{this.props.cEvent.title}</span></div>)  : "Lisää tapahtuma"}</h2>
-                </div>
-
+                {this.state.completed &&
+                    <div className="completed-overlay">
+                        <h1>Tapahtuma {this.state.deleted ? "poistettu" : this.props.cEvent ? "muokattu" : "lisätty"} onnistuneesti</h1>
+                    </div>
+                }
+                {!this.state.completed &&
+                    <div className="event-header">
+                        <h2>{this.props.cEvent ? (<div><span className="text-white">Muokkaa tapahtumaa </span ><span className="text-info">{this.props.cEvent.title}</span></div>)  : "Lisää tapahtuma"}</h2>
+                    </div>
+                }
+                {!this.state.completed &&
                 <div className="event-form container">
                     <ImageUp setState={s => {this.setState(s)}} setImgLoc={"eventImages"} currentImg={this.state.imageURL}/>
                     <form>
@@ -138,7 +157,7 @@ export default class addEvent extends Component {
                             <div class="form-group col-md-2">
                             <label for="end-time">Lopetus aika</label>
                             <input type="time" class="form-control bg-dark text-white border-0" id="end-time" />
-                            </div> */}
+                        </div> */}
 
                             <div className="form-group col-md-2">
                                 <label for="datepicker">Päivämäärä</label>
@@ -148,7 +167,7 @@ export default class addEvent extends Component {
                                     placeholderText="Valitse pvm"
                                     autoComplete="off"
                                     locale={fi}
-                                />
+                                    />
                             </div>
                                 <div className="form-group col-md-2">
                                     <label for="startpicker">Alkaa</label>
@@ -163,7 +182,7 @@ export default class addEvent extends Component {
                                         timeCaption="Alkaa"
                                         dateFormat="HH:mm"
                                         timeFormat="HH:mm"
-                                    />
+                                        />
                                 </div>
                                 <div className="form-group col-md-2">
                                     <label for="startpicker">Loppuu</label>
@@ -205,11 +224,14 @@ export default class addEvent extends Component {
                         </div>
                         <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cEvent ? "Muokkaa" : "Lisää"}</button>
                         {this.props.cEvent &&
-                        <button class="btn btn-danger" onClick={(e) => {
-                                db.collection('events').doc(this.props.cEvent.title).delete()
+                        <button class="btn btn-danger ml-2" onClick={(e) => {
+                                db.collection('events').doc(this.state.selected).delete();
+                                this.setDeleted();
+                                this.setCompleted();
                             }}>Poista</button>}
                         </form>
                 </div>
+                }
 
                 
             </div>

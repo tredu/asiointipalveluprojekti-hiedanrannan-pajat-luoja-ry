@@ -74,7 +74,7 @@ export default class editCourse extends Component {
                             </select>
                         </form>
                     </div>
-                    <div className="row">
+                    <div className="row justify-content-center">
                         {this.state.course &&
                             <AddCourse cCourse={course} selected={this.state.selected} key={this.state.id} />
                         }

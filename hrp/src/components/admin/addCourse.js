@@ -14,7 +14,9 @@ export default class addCourse extends Component {
                 editEnd: true,
                 editStart: true,
                 editDate: true,
-                selected: this.props.selected
+                selected: this.props.selected,
+                completed: false,
+                deleted: false
             }
         } else {        
         this.state = {
@@ -25,7 +27,8 @@ export default class addCourse extends Component {
             organizer: '',
             phone: '',
             title: '',
-            start: ''
+            start: '',
+            completed: false
         }
         }
 
@@ -88,19 +91,37 @@ export default class addCourse extends Component {
         })
         .then(function() {
             console.log("Document successfully written!");
-        })
+        }).then(() => {this.setCompleted()})
         .catch(function(error) {
             console.error("Error writing document: ", error);
         });
     }
 
+    setCompleted = () => {
+        this.setState({completed: true});
+    }
+
+    setDeleted = () => {
+        this.setState({deleted: true});
+    }
+
     render() {
         return (
             <div className="event-add">
+
+                {this.state.completed &&
+                    <div className="completed-overlay">
+                        <h1>Kurssi {this.state.deleted ? "poistettu" : this.props.cCourse ? "muokattu" : "lisätty"} onnistuneesti</h1>
+                    </div>
+                }
+
+                {!this.state.completed &&
                 <div className="event-header">
                     <h2>{this.props.cCourse ? (<div><span className="text-white">Muokkaa kurssia </span ><span className="text-info">{this.props.cCourse.title}</span></div>)  : "Lisää kurssi"}</h2>
                 </div>
+                }
 
+                {!this.state.completed &&
                 <div className="event-form container">
                     <form>
                         <div class="form-row">
@@ -166,7 +187,7 @@ export default class addCourse extends Component {
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-4">
                             <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control bg-dark text-white border-0" id="email" required 
+                            <input type="email" name="email" class="form-control bg-dark text-white border-0" id="email"  
                             onChange={this.handleChange} value={this.state.email} />
                             </div>
                             <div className="form-group col-md-4">
@@ -177,13 +198,15 @@ export default class addCourse extends Component {
                         </div>
                         <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cCourse ? "Muokkaa" : "Lisää"}</button>
                         {this.props.cCourse &&
-                        <button class="btn btn-danger" onClick={(e) => {
-                                db.collection('courses').doc(this.props.cCourse.title).delete()
+                        <button class="btn btn-danger ml-2" onClick={(e) => {
+                                e.preventDefault();
+                                db.collection('courses').doc(this.state.selected).delete();
+                                this.setDeleted();
+                                this.setCompleted();
                             }}>Poista</button>}
                         </form>
                 </div>
-
-                
+                }
             </div>
         )
     }

@@ -74,7 +74,7 @@ export default class editEvent extends Component {
                             </select>
                         </form>
                     </div>
-                    <div className="row">
+                    <div className="row justify-content-center">
                         {this.state.event &&
                             <AddEvent cEvent={event} selected={this.state.selected} key={this.state.id} />
                         }
