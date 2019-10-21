@@ -74,7 +74,7 @@ export default class editArtist extends Component {
                             </select>
                         </form>
                     </div>
-                    <div className="row">
+                    <div className="row justify-content-center">
                         {this.state.artist &&
                             <AddArtist cArtist={artist} selected={this.state.selected} key={this.state.id} />
                         }

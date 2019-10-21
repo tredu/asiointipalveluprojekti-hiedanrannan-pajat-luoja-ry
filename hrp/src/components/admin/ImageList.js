@@ -17,6 +17,7 @@ export default class ImageList extends Component {
                                             }} />
                                             <button type="submit" class="btn btn-danger" onClick={(e) => { 
                                                 this.props.deleteImage(img);
+                                                this.props.close();
                                             }}>Poista</button>
                                     </figure>
                         ))

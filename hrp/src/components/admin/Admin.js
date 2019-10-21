@@ -50,10 +50,10 @@ export default class Admin extends Component {
             <div className="admin-panel">
                 <div className="admin-navbar">
                     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="transBar">
-                        <Navbar.Brand>Hallintapaneeli</Navbar.Brand>
+                        <Navbar.Brand>Hallinta</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mx-auto">
+                        <Nav>
                             <NavDropdown title="Artistit" id="basic-nav-dropdown">
                                 <NavDropdown.Item className="transBar">
                                     <Nav.Link as={NavLink} to='/admin/addartist'>Lisää artisti</Nav.Link>

@@ -10,7 +10,9 @@ export default class addArtist extends Component {
         if(this.props.cArtist) {
             this.state = {
                 ...this.props.cArtist,
-                selected: this.props.selected
+                selected: this.props.selected,
+                completed: false,
+                deleted: false
             }
         } else {        
         this.state = {
@@ -23,7 +25,8 @@ export default class addArtist extends Component {
             live: '',
             facebook: '',
             instagram: '',
-            imageURL: ''
+            imageURL: '',
+            completed: false
         }
         }
 
@@ -84,19 +87,38 @@ export default class addArtist extends Component {
         })
         .then(function() {
             console.log("Document successfully written!");
-        })
+        }).then(() => {this.setCompleted()})
         .catch(function(error) {
             console.error("Error writing document: ", error);
         });
     }
 
+    setCompleted = () => {
+        this.setState({completed: true});
+    }
+
+    setDeleted = () => {
+        this.setState({deleted: true});
+    }
+
     render() {
         return (
             <div className="artist-add">
+
+                {this.state.completed &&
+                    <div className="completed-overlay">
+                        {/* <h1>Artisti {this.props.cArtist ? "muokattu" : this.state.deleted ? "poistettu" : "lisätty"} onnistuneesti</h1> */}
+                        <h1>Artisti {this.state.deleted ? "poistettu" : this.props.cArtist ? "muokattu" : "lisätty"} onnistuneesti</h1>
+                    </div>
+                }
+
+                {!this.state.completed &&
                 <div className="artist-header">
                     <h2>{this.props.cArtist ? (<div><span className="text-white">Muokkaa Artistia </span><span className="text-info">{this.props.cArtist.name}</span></div>): "Lisää artisti"}</h2>
                 </div>
+                }
 
+                {!this.state.completed &&
                 <div className="event-form container">
                     <ImageUp setState={s => {this.setState(s)}} setImgLoc={"artistImages"} currentImg={this.state.imageURL}/>
                     <form>
@@ -159,11 +181,14 @@ export default class addArtist extends Component {
                         </div>
                         <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>{this.props.cArtist ? "Muokkaa" : "Lisää"}</button>
                         {this.props.cArtist &&
-                        <button class="btn btn-danger ml-1" onClick={(e) => {
-                            db.collection('artists').doc(this.props.cArtist.name).delete();
+                        <button class="btn btn-danger ml-2" onClick={(e) => {
+                            db.collection('artists').doc(this.state.selected).delete();
+                            this.setDeleted();
+                            this.setCompleted();
                         }}>Poista</button>}
                         </form>
                 </div>
+                }
             </div>
         )
     }

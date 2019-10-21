@@ -15,7 +15,7 @@ export default class Home extends React.Component {
                         <div class="mb-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="hovereffect">
                                 {/* <img class="img-responsive" src={require('../../img/placeholder.jpg')} alt=""/> */}
-                                <img class="img-responsive" src='https://firebasestorage.googleapis.com/v0/b/hrp-sivut.appspot.com/o/eventImages%2Ff894361b-5b97-4eb2-abbc-ac7c9a6065cc.jpg?alt=media&token=e9516a26-1798-4569-993b-afddd53c013e' al t=""/>
+                                <img class="img-responsive" src='https://firebasestorage.googleapis.com/v0/b/hrp-sivut.appspot.com/o/eventImages%2Ff894361b-5b97-4eb2-abbc-ac7c9a6065cc.jpg?alt=media&token=e9516a26-1798-4569-993b-afddd53c013e' alt=""/>
                                 <div class="overlay">
                                 <h2>Tapahtumat</h2>
                                 <Link className="info" to={"events"}>Selaa Tapahtumia
