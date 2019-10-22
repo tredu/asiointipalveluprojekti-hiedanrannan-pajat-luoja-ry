@@ -5,7 +5,7 @@ import { Button, Modal } from 'react-bootstrap'
 
 import './CourseMenu.css'
 
-import { MdEvent, MdAccessTime, MdMail, MdPhone } from 'react-icons/md' 
+import { MdEvent, MdAccessTime, MdMail, MdPhone, MdPeople } from 'react-icons/md' 
 
  
 const MenuItem = ({date, start, end, title, selected, organizer, desc, phone, email}) => {
@@ -67,6 +67,9 @@ const MenuItem = ({date, start, end, title, selected, organizer, desc, phone, em
                             
                         }) ()}
                     </small>
+                </span><br/>
+                <span className="text-primary">
+                  <MdPeople /> {organizer}
                 </span>
              </Modal.Title>
            </Modal.Header>

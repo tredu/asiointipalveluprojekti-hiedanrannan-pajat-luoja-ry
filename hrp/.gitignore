@@ -26,3 +26,7 @@ yarn-error.log*
 
 /src/firebase.js
 /src/serviceacc.json
+firebase*
+firestore*
+storage*
+.firebase*
