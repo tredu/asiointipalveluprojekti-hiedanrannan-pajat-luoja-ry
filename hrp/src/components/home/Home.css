@@ -135,6 +135,9 @@
     .thumbnails {
         padding-top: 15%;
     }
+    .contact-container {
+        padding-top: 15%;
+    }
     .eventRoot, .artistRoot {
         padding-top: 18%;
     }
@@ -146,7 +149,7 @@
     }
 }
 @media (min-width: 34em) {
-    .thumbnails {
+    .thumbnails, .contact-container {
         padding-top: 7%;
     }
     .eventRoot, .artistRoot {
@@ -174,7 +177,7 @@
 }
 
 @media (min-width: 48em) {
-    .thumbnails {
+    .thumbnails, .contact-container {
         padding-top: 5%;
     }
     .eventRoot, .artistRoot {
@@ -186,7 +189,7 @@
 }
 
 @media (min-width: 62em) {
-    .thumbnails {
+    .thumbnails, .contact-container {
         padding-top: 3%;
     }
     .eventRoot, .artistRoot {

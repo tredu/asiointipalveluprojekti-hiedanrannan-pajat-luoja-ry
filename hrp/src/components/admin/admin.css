@@ -6,9 +6,17 @@
     overflow: auto;
 }
 
-.event-form {
-    width: 80vw;
+.adminPanel {
+    overflow: auto;
 }
+.event-form {
+    /* width: 80vw; */
+}
+
+.event-add, .artist-add {
+    height: 100%;
+}
+
 .form-control::-webkit-input-placeholder { color: dimgray;}  /* WebKit, Blink, Edge */
 .form-control:-moz-placeholder { color: dimgray; }  /* Mozilla Firefox 4 to 18 */
 .form-control::-moz-placeholder { color: dimgray; }  /* Mozilla Firefox 19+ */
@@ -69,4 +77,22 @@ li.react-datepicker__time-list-item:hover {
     z-index: 1024;
     overflow: hidden;
     margin: 5vmin 0 0 0;
+}
+
+
+@media (max-width: 34em) {
+    .event-add, .artist-add {
+        padding-bottom: 20%;
+    }
+}
+@media (min-width: 36em) {
+    .event-add, .artist-add {
+        padding-bottom: 20%;
+    }
+}
+
+@media (min-width: 48em) {
+    .event-add, .artist-add {
+        padding-bottom: 0%;
+    }
 }

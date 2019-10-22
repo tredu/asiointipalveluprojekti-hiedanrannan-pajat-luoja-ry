@@ -48,6 +48,10 @@ export default class Admin extends Component {
     render() {
         return (
             <div className="admin-panel">
+                {this.state.value !== this.state.secretWord && 
+                <input onChange={this.handleChange}></input>
+                }
+                {this.state.value === this.state.secretWord &&
                 <div className="admin-navbar">
                     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="transBar">
                         <Navbar.Brand>Hallinta</Navbar.Brand>
@@ -81,7 +85,8 @@ export default class Admin extends Component {
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>
-                </div>
+                </div> }
+                {this.state.value === this.state.secretWord &&
                 <div className="adminPanel">
                     <Route path="/admin/addartist" component={AddArtist} />
                     <Route path="/admin/editartist" component={EditArtist} />
@@ -91,16 +96,9 @@ export default class Admin extends Component {
 
                     <Route path="/admin/addcourse" component={AddCourse} />
                     <Route path="/admin/editcourse" component={EditCourse} />
-
-                    {/* <Link className="nav-link" activeClassName="active" to={"/admin/addartist"}>Lisää Artisti</Link>
-                    <Link className="nav-link" activeClassName="active" to={"/admin/editartist"}>Muokkaa Artistia</Link>
-                    <Link className="nav-link" activeClassName="active" to={"/admin/addevent"}>Lisää Tapahtuma</Link>
-                    <Link className="nav-link" activeClassName="active" to={"/admin/editevent"}>Muokkaa Tapahtumia</Link>
-                    <Route path="/admin/addartist" component={AddArtist} />
-                    <Route path="/admin/editartist" component={EditArtist} />
-                    <Route path="/admin/addevent" component={AddEvent} />
-                    <Route path="/admin/editevent" component={EditEvent} /> */}
+     
                 </div>
+                }
             </div>
         )
     }
