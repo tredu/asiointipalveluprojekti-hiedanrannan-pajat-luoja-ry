@@ -18,6 +18,10 @@
     padding: 5%;
 }
 
+.img-responsive {
+    height: 100%;
+}
+
 .boxshadow::after:hover {
     opacity: 1; /* show the hover shadow */
 }

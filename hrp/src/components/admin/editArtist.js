@@ -59,7 +59,7 @@ export default class editArtist extends Component {
         const { artistsID } = this.state;
         const { artist } = this.state;
         return (
-            <div className="editArtist">
+            <div className="editArtisti">
                 <div className="editArtist-header">
                 </div>
                 <div className="container">

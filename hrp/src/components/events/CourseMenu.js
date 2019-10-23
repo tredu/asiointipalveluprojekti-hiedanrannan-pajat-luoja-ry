@@ -14,17 +14,19 @@ const MenuItem = ({date, start, end, title, selected, organizer, desc, phone, em
     // style={{background: 'url('+img+')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}
     >
       {/* <p>{text}</p> */}
-      <span className="menu-item-date">
-      {(() => {
-        const date2 = new Date(date.toDate());
-        
-        const day = date2.getDate();
-        const month = date2.getMonth() + 1;
-        const year = date2.getFullYear();
-        
-        return ` ${day}.${month}.${year}`
-      }) ()}
-      </span>
+      {date &&
+        <span className="menu-item-date">
+        {(() => {
+          const date2 = new Date(date.toDate());
+          
+          const day = date2.getDate();
+          const month = date2.getMonth() + 1;
+          const year = date2.getFullYear();
+          
+          return ` ${day}.${month}.${year}`
+        }) ()}
+        </span>
+      }
       <p className="menu-item-title">
         {title}
       </p>
@@ -43,6 +45,7 @@ const MenuItem = ({date, start, end, title, selected, organizer, desc, phone, em
            <Modal.Header className="bg-dark text-white text-center" closeButton>
              <Modal.Title className="w-100" id="vcenter">
                {title}<br/>
+               {date &&
                 <span className="text-info"><small><MdEvent />
 
                     {(() => {
@@ -67,17 +70,21 @@ const MenuItem = ({date, start, end, title, selected, organizer, desc, phone, em
                             
                         }) ()}
                     </small>
-                </span><br/>
+                </span>
+                }
+                <br/>
+                {organizer &&
                 <span className="text-primary">
                   <MdPeople /> {organizer}
                 </span>
+                }
              </Modal.Title>
            </Modal.Header>
            <Modal.Body className="bg-dark text-white">
             <p>{desc}</p>
             <div className="artist-modal-contact text-center">
-              <div><MdPhone className="contact-icon" /> {phone}</div>
-              <div><MdMail className="contact-icon"/> {email}</div>
+              {phone && <div><MdPhone className="contact-icon" /> {phone}</div>}
+              {email && <div><MdMail className="contact-icon"/> {email}</div>}
             </div>
            </Modal.Body>
 

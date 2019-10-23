@@ -18,7 +18,7 @@ class App extends Component {
               {window.location.pathname.indexOf("/admin") !== 0 &&
                 <NavBar /> 
               }
-                <div className="routingContent">
+                <div className="routingContent" id="main-window">
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/artists" component={Artists} />

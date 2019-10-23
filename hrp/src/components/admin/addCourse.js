@@ -140,7 +140,7 @@ export default class addCourse extends Component {
                             <div className="form-group col-md-2">
                                 <label for="datepicker">Päivämäärä</label>
                                 <DatePicker className="eventDatePicker form-control bg-dark text-white border-0" id="datepicker"
-                                    selected={this.state.editDate ? this.state.date.toDate() : this.state.date}
+                                    selected={!this.state.date ? null : this.state.editDate ? this.state.date.toDate() : this.state.date}
                                     onChange={this.handleDateChange}
                                     placeholderText="Valitse pvm"
                                     autoComplete="off"
@@ -150,7 +150,7 @@ export default class addCourse extends Component {
                                 <div className="form-group col-md-2">
                                     <label for="startpicker">Alkaa</label>
                                     <DatePicker className="eventStartTime form-control bg-dark text-white border-0" id="startpicker"
-                                        selected={this.state.editStart ? this.state.start.toDate() : this.state.start}
+                                        selected={!this.state.start ? null : this.state.editStart ? this.state.start.toDate() : this.state.start}
                                         onChange={this.handleStartChange}
                                         placeholderText="Valitse aika"
                                         autoComplete="off"
@@ -167,7 +167,7 @@ export default class addCourse extends Component {
                                     <DatePicker className="eventStartTime form-control bg-dark text-white border-0" id="startpicker"
                                         name="start"
                                         placeholderText="Valitse aika"
-                                        selected={this.state.editEnd ? this.state.end.toDate() : this.state.end}
+                                        selected={!this.state.end ? null : this.state.editEnd ? this.state.end.toDate() : this.state.end}
                                         onChange={this.handleEndChange}
                                         autoComplete="off"
                                         showTimeSelect

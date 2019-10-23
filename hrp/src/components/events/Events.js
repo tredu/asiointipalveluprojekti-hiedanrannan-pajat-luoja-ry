@@ -81,42 +81,54 @@ class Events extends React.Component {
                             <Card style={{minWidth: '33%'}} border="dark" className="transparent-card text-white mx-auto my-2">
                                 {event.imageURL ?
                                     <Card.Img variant="top" src={event.imageURL} onError={(e) => { e.target.onerror = null; e.target.src=require('../../img/placeholder.jpg');}} /> :
-                                    <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
+                                    '' 
+                                    // <Card.Img variant="top" src={require('../../img/placeholder.jpg')} />
                                 }
                                 <Card.Title>
                                     {event.title} <br/>
-                                    <small className="text-primary"><MdLocationOn />{' ' + event.location}</small><br/>
+                                    {event.location &&
+                                    <small className="text-primary"><MdLocationOn />{' ' + event.location}<br/></small>
+                                    }
+                                    {event.date &&
                                     <span className="text-info">
                                         <small><MdEvent />
                                             {(() => {
-                                                const data = new Date(event.start.toDate());
-                                                const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
-                                                const day = date.getDate();
-                                                const month = date.getMonth() + 1;
-                                                const year = date.getFullYear()
-                                                const hours = data.getHours();
-                                                const mins = data.getMinutes();
-                                                
-                                                // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
-                                                return ` ${day}.${month}.${year} ` //klo: ${hours}:${((mins === 0) ? "00" : mins)}
-                                                // return `klo: ${hours}:${((mins === 0) ? "00" : mins)}`
+                                                if(event.date) {
+                                                    // const data = new Date(event.start.toDate());
+                                                    // const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
+                                                    const date = new Date(event.date ? event.date.toDate() : null);
+                                                    const day = date.getDate();
+                                                    const month = date.getMonth() + 1;
+                                                    const year = date.getFullYear()
+                                                    // const hours = data.getHours();
+                                                    // const mins = data.getMinutes();
+                                                    
+                                                    // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                    return ` ${day}.${month}.${year} ` //klo: ${hours}:${((mins === 0) ? "00" : mins)}
+                                                    // return `klo: ${hours}:${((mins === 0) ? "00" : mins)}`
+                                                }
                                             }) ()}
                                         </small>
-    
+                                        
+                                        {event.start &&
                                         <small><MdAccessTime />
                                             {(() => {
-                                                const start = new Date(event.start.toDate());
-                                                const end = new Date(event.end.toDate());
-                                                const startH = start.getHours();
-                                                const startM = start.getMinutes();
-                                                const endH = end.getHours();
-                                                const endM = end.getMinutes();
-                                                
-                                                return ` ${startH}:${((startM === 0) ? "00" : startM)} - ${endH}:${((endM === 0) ? "00" : endM)}`
+                                                if(event.start) {
+                                                    const start = new Date(event.start.toDate());
+                                                    const end = new Date(event.end.toDate());
+                                                    const startH = start.getHours();
+                                                    const startM = start.getMinutes();
+                                                    const endH = end.getHours();
+                                                    const endM = end.getMinutes();
+                                                    
+                                                    return ` ${startH}:${((startM === 0) ? "00" : startM)} - ${endH}:${((endM === 0) ? "00" : endM)}`
+                                                }
                                                 
                                             }) ()}
                                         </small>
+                                        }
                                     </span>
+                                    }
                                 </Card.Title>
                                 <Card.Body>
                                     <Card.Text>
@@ -139,41 +151,53 @@ class Events extends React.Component {
                                                 <Modal.Title className="w-100" id="vcenter">
                                                     {event.imageURL ?
                                                         <Image src={event.imageURL} onError={(e) => { e.target.onerror = null; e.target.src=require('../../img/placeholder.jpg');}} fluid rounded/> :
-                                                        <Image src={require('../../img/placeholder.jpg')} fluid rounded />
+                                                        ''
+                                                        // <Image src={require('../../img/placeholder.jpg')} fluid rounded />
                                                     }<br/>
 
                                                     {event.title}<br/> 
-                                                    <small className="text-primary"><MdLocationOn />{' ' + event.location}</small><br/>
+                                                    {event.location &&
+                                                    <small className="text-primary"><MdLocationOn />{' ' + event.location}<br/></small>
+                                                    }
+                                                    {event.date &&
                                                     <span className="text-info"><small><MdEvent />
 
                                                         {(() => {
-                                                            const data = new Date(event.start.toDate());
-                                                            const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
-                                                            const day = date.getDate();
-                                                            const month = date.getMonth() + 1;
-                                                            const year = date.getFullYear()
-                                                            const hours = data.getHours();
-                                                            const mins = data.getMinutes();
-                                                            
-                                                            // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
-                                                            return ` ${day}.${month}.${year} ` //klo: ${hours}:${((mins === 0) ? "00" : mins)}
-                                                            // return `klo: ${hours}:${((mins === 0) ? "00" : mins)}`
+                                                            if(event.date) {
+                                                                // const data = new Date(event.start.toDate());
+                                                                // const date = new Date(event.date ? event.date.toDate() : event.start.toDate());
+                                                                const date = new Date(event.date ? event.date.toDate() : null);
+                                                                    
+                                                                const day = date.getDate();
+                                                                const month = date.getMonth() + 1;
+                                                                const year = date.getFullYear()
+                                                                // const hours = data.getHours();
+                                                                // const mins = data.getMinutes();
+                                                                
+                                                                // return day + "." + month + "." + year + " klo: " + hours + ":" + ((mins === 0) ? "00" : mins); 
+                                                                return ` ${day}.${month}.${year} ` //klo: ${hours}:${((mins === 0) ? "00" : mins)}
+                                                                // return `klo: ${hours}:${((mins === 0) ? "00" : mins)}`
+                                                            }
                                                         }) ()}
                                                         </small>
+                                                        {event.start &&
                                                         <small><MdAccessTime />
                                                             {(() => {
-                                                                const start = new Date(event.start.toDate());
-                                                                const end = new Date(event.end.toDate());
-                                                                const startH = start.getHours();
-                                                                const startM = start.getMinutes();
-                                                                const endH = end.getHours();
-                                                                const endM = end.getMinutes();
-                                                                
-                                                                return ` ${startH}:${((startM === 0) ? "00" : startM)} - ${endH}:${((endM === 0) ? "00" : endM)}`
-                                                                
+                                                                if(event.start) {
+                                                                    const start = new Date(event.start.toDate());
+                                                                    const end = new Date(event.end.toDate());
+                                                                    const startH = start.getHours();
+                                                                    const startM = start.getMinutes();
+                                                                    const endH = end.getHours();
+                                                                    const endM = end.getMinutes();
+                                                                    
+                                                                    return ` ${startH}:${((startM === 0) ? "00" : startM)} - ${endH}:${((endM === 0) ? "00" : endM)}`
+                                                                } 
                                                             }) ()}
                                                         </small>
+                                                        }
                                                     </span>
+                                                    }
                                                 </Modal.Title>        
                                                 
                                             </Modal.Header>    
@@ -182,13 +206,17 @@ class Events extends React.Component {
                                                     {event.description}
                                                 </p>
 
+                                                {event.oragnizer &&
                                                 <div className="event-modal-organizer text-center">
                                                     <MdPeople/>{' ' + event.organizer} 
                                                 </div>
+                                                }
 
+                                                {event.contact &&
                                                 <div className="event-modal-contact text-center">
                                                     <MdMail/>&nbsp;<a href={"mailto:" + event.contact}>{event.contact}</a>
                                                 </div>
+                                                }
                                             </Modal.Body>
                                             </Modal>
                                     </Card.Text>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { db } from '../../firebase'
+import { db, auth } from '../../firebase'
 import AddArtist from './addArtist'
 import AddEvent from './addEvent'
 import EditEvent from './editEvent'
@@ -11,45 +11,30 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 import './admin.css'
 
-export default class Admin extends Component {
+class Admin extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: '',
             secretWord: 'visiopro',
-            events: []
+            events: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
-    // componentDidMount() {
-    //     db.collection("events")
-    //         .get()
-    //         .then(querySnapshot => {
-    //             const data = querySnapshot.docs.map(doc => doc.data());
-    //             const id = querySnapshot.docs.map(doc => doc.id);
-                
-    //             const addId = (data, id) => {
-    //                 data.forEach(r => r.docName = id[data.indexOf(r)]);
-    //                 return data;
-    //             }
-    //             addId(data, id);
-                
-    //             console.log(data);
-                
-    //             this.setState({ events: data });
-    //         });
-    // }
-
     handleChange(e) {
         this.setState({value: e.target.value});
     }
+
     render() {
         return (
-            <div className="admin-panel">
+                <div className="admin-panel">
                 {this.state.value !== this.state.secretWord && 
-                <input onChange={this.handleChange}></input>
+                <div>
+                    <h1>Kirjaudu</h1>
+                    <input onChange={this.handleChange}></input>
+                </div>
                 }
                 {this.state.value === this.state.secretWord &&
                 <div className="admin-navbar">
@@ -103,3 +88,5 @@ export default class Admin extends Component {
         )
     }
 }
+
+export default Admin

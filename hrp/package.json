@@ -17,7 +17,8 @@
     "react-horizontal-scrolling-menu": "^0.7.3",
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.1.1",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "react-with-firebase-auth": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
