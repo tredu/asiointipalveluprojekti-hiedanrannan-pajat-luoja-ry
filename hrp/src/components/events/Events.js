@@ -206,7 +206,7 @@ class Events extends React.Component {
                                                     {event.description}
                                                 </p>
 
-                                                {event.oragnizer &&
+                                                {event.organizer &&
                                                 <div className="event-modal-organizer text-center">
                                                     <MdPeople/>{' ' + event.organizer} 
                                                 </div>
